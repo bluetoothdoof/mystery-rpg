@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/sheet.css">
+    <title>Ficha de Personagem</title>
+</head>
+
+<body>
+    <!-- Coisas básicas da personagem -->
+    <div id="basic" style="display: flex; margin: 0 auto;">
+        <img src="" id="speciesImage" alt="Imagem do Pokémon" height="150px">
+
+        <div style="display: flex; flex-direction: column;">
+            <strong>Nome</strong>
+            <div contenteditable="true" class="editable"></div>
+
+            <strong>Espécie</strong>
+            <input list="species" id="speciesInput">
+            <datalist id="species">
+            </datalist>
+
+            <strong>Idade</strong>
+            <div contenteditable="true" class="editable"></div>
+        </div>
+    </div>
+
+    <strong>Backstory</strong>
+    <div contenteditable="true" id="backstory" class="editable"></div>
+
+    <!-- coisas mecânicas -->
+    <div>
+        <p>pontos de vida</p>
+        <p>perícias</p>
+        <p>atributos</p>
+        <p>distinções</p>
+    </div>
+
+    <!-- ativos e complicações -->
+    <div>
+        <p>ativos</p>
+        <p>complicações</p>
+    </div>
+
+    <script src="assets/dex.js"></script>
+</body>
+
+</html>

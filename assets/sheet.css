@@ -1,0 +1,47 @@
+body {
+    margin: 40px auto;
+    max-width: 650px;
+    line-height: 1.6;
+    font-size: 18px;
+    padding: 0 10px;
+    background-color: #f7f7f7;
+    color: #222;
+    text-align: justify;
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+strong {
+    color: #B10906;
+    font-weight: 600;
+}
+
+#basic {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    color: #B10906;
+}
+
+.editable {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    resize: none;
+    border: 1px solid #222;
+    background: #fff;
+    width: 200px;
+}
+
+#backstory {
+    width: 100%;
+    min-height: 150px;
+}
