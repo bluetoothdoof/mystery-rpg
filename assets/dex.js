@@ -14788,7 +14788,9 @@ speciesInput.addEventListener("input", (event) => {
         const id = elem.id;
         const value = elem.name;
 
-        if (name == value) {
+        if (name === value) {
+            hasSet = true;
+
             // Serebii doesn't have Paldean forms
             if (name === "Paldean Wooper") {
                 speciesImage.src = "https://img.pokemondb.net/artwork/wooper-paldean.jpg";
@@ -14838,9 +14840,6 @@ speciesInput.addEventListener("input", (event) => {
             // Adding type icons
             if (elem.types) {
                 for (let i = 0; i < elem.types.length; ++i) {
-                    /*const type = document.createElement('img');
-                    type.src = `https://www.serebii.net/pokedex-bw/type/${elem.types[i]}.gif`;
-                    type.alt = elem.types[i].charAt(0).toUpperCase() + elem.types[i].slice(1);*/
                     const type = makeTypeBox(elem.types[i]);
                     span.appendChild(type);
                 }
