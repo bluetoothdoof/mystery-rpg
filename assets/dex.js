@@ -10658,7 +10658,7 @@ const dex = [
     },
     {
         "id": 741,
-        "name": "Oricorio",
+        "name": "Oricorio (Baile)",
         "con": "d8",
         "pow": "d8",
         "pro": "d6",
@@ -10666,6 +10666,45 @@ const dex = [
         "dex": "d10",
         "types": [
             "fire",
+            "flying"
+        ]
+    },
+    {
+        "id": "741-pp",
+        "name": "Oricorio (Pom Pom)",
+        "con": "d8",
+        "pow": "d8",
+        "pro": "d6",
+        "soc": "d10",
+        "dex": "d10",
+        "types": [
+            "electric",
+            "flying"
+        ]
+    },
+    {
+        "id": "741-pu",
+        "name": "Oricorio (Pa'u)",
+        "con": "d8",
+        "pow": "d8",
+        "pro": "d6",
+        "soc": "d10",
+        "dex": "d10",
+        "types": [
+            "psychic",
+            "flying"
+        ]
+    },
+    {
+        "id": "741-s",
+        "name": "Oricorio (Sensu)",
+        "con": "d8",
+        "pow": "d8",
+        "pro": "d6",
+        "soc": "d10",
+        "dex": "d10",
+        "types": [
+            "ghost",
             "flying"
         ]
     },
@@ -12068,13 +12107,27 @@ const dex = [
     },
     {
         "id": 849,
-        "name": "Toxtricity",
+        "name": "Toxtricity (Amped)",
         "con": "d8",
         "pow": "d10",
         "pro": "d6",
         "soc": "d10",
         "dex": "d8",
         "types": [
+            "electric",
+            "poison"
+        ]
+    },
+    {
+        "id": "849-lk",
+        "name": "Toxtricity (Low Key)",
+        "con": "d8",
+        "pow": "d10",
+        "pro": "d6",
+        "soc": "d10",
+        "dex": "d8",
+        "types": [
+            "electric",
             "poison"
         ]
     },
@@ -12619,7 +12672,7 @@ const dex = [
     },
     {
         "id": 892,
-        "name": "Urshifu",
+        "name": "Urshifu (Single Strike)",
         "con": "d10",
         "pow": "d12",
         "pro": "d10",
@@ -12628,6 +12681,19 @@ const dex = [
         "types": [
             "fighting",
             "dark"
+        ]
+    },
+    {
+        "id": "892-r",
+        "name": "Urshifu (Rapid Strike)",
+        "con": "d10",
+        "pow": "d12",
+        "pro": "d10",
+        "soc": "d6",
+        "dex": "d10",
+        "types": [
+            "fighting",
+            "water"
         ]
     },
     {
@@ -13767,7 +13833,33 @@ const dex = [
     },
     {
         "id": 978,
-        "name": "Tatsugiri",
+        "name": "Tatsugiri (Curly)",
+        "con": "d8",
+        "pow": "d10",
+        "pro": "d8",
+        "soc": "d12",
+        "dex": "d10",
+        "types": [
+            "dragon",
+            "water"
+        ]
+    },
+    {
+        "id": 978,
+        "name": "Tatsugiri (Droopy)",
+        "con": "d8",
+        "pow": "d10",
+        "pro": "d8",
+        "soc": "d12",
+        "dex": "d10",
+        "types": [
+            "dragon",
+            "water"
+        ]
+    },
+    {
+        "id": 978,
+        "name": "Tatsugiri (Stretchy)",
         "con": "d8",
         "pow": "d10",
         "pro": "d8",
@@ -14435,6 +14527,27 @@ speciesInput.addEventListener("input", (event) => {
             else if (name === "Ursaluna (Blood Moon)") {
                 speciesImage.src = "https://archives.bulbagarden.net/media/upload/thumb/" +
                     "8/85/0901Ursaluna-Bloodmoon.png/900px-0901Ursaluna-Bloodmoon.png";
+            }
+            else if (name === "Urshifu (Rapid Strike)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/urshifu-rapid-strike.jpg";
+            }
+            else if (name === "Toxtricity (Low Key)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/toxtricity-low-key.jpg";
+            }
+            else if (name === "Oricorio (Pom Pom)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-pom-pom.jpg";
+            }
+            else if (name === "Oricorio (Pa'u)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-pau.jpg";
+            }
+            else if (name === "Oricorio (Sensu)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-sensu.jpg";
+            }
+            else if (name === "Tatsugiri (Droopy)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/tatsugiri-droopy.jpg";
+            }
+            else if (name === "Tatsugiri (Stretchy)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/tatsugiri-stretchy.jpg";
             }
             else {
                 speciesImage.src = `https://www.serebii.net/art/th/${id}.png`;
