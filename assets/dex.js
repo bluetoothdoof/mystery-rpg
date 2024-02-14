@@ -14756,6 +14756,28 @@ for (let i = 0; i < dex.length; ++i) {
     speciesSelect.appendChild(opt);
 }
 
+function makeTypeBox(type) {
+    const div = document.createElement('div');
+
+    const color = ({
+        normal: "#A8A878", fighting: "#C03028", flying: "#A890F0", poison: "#A040A0",
+        ground: "#E0C068", rock: "#B8A038", bug: "#A8B820", ghost: "#705898",
+        steel: "#B8B8D0", fire: "#F08030", water: "#6890F0", grass: "#78C850",
+        electric: "#F8D030", psychic: "#F85888", ice: "#98D8D8", dragon: "#7038F8",
+        dark: "#705848", fairy: "#EE99AC"
+    })[type];
+
+    const style = "width: 100px; color: #FFF;" +
+        'text-align: center; font-family: "Space Mono", monospace;' +
+        `background-color: ${color};` +
+        "border: 1px solid #222;";
+
+    div.style = style;
+    div.innerHTML = type.toUpperCase();
+
+    return div;
+}
+
 const speciesInput = document.getElementById("speciesInput");
 const speciesImage = document.getElementById("speciesImage");
 
@@ -14816,10 +14838,10 @@ speciesInput.addEventListener("input", (event) => {
             // Adding type icons
             if (elem.types) {
                 for (let i = 0; i < elem.types.length; ++i) {
-                    const type = document.createElement('img');
+                    /*const type = document.createElement('img');
                     type.src = `https://www.serebii.net/pokedex-bw/type/${elem.types[i]}.gif`;
-                    type.alt = elem.types[i].charAt(0).toUpperCase() + elem.types[i].slice(1);
-
+                    type.alt = elem.types[i].charAt(0).toUpperCase() + elem.types[i].slice(1);*/
+                    const type = makeTypeBox(elem.types[i]);
                     span.appendChild(type);
                 }
             }

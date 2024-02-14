@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/sheet.css">
     <title>Ficha de Personagem</title>
 </head>
@@ -13,7 +17,7 @@
     <!-- Coisas básicas da personagem -->
     <div id="basic" style="display: flex; margin: 0 auto;">
         <div style="display: flex; flex-direction: column;">
-            <img id="speciesImage" alt="Imagem do Pokémon" height="150px">
+            <img id="speciesImage" onerror="if (!this.src) { this.src = 'assets/error.jpg'; }" height="150px">
 
             <div id="monTypes" style="display: flex; justify-content: center; padding-top: 20px;"></div>
         </div>
