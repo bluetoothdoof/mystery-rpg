@@ -100,16 +100,14 @@ const dex = [
         "Rattata"
     ],
     [
-        19,
-        "Alolan Rattata"
+        "19-a", "Alolan Rattata"
     ],
     [
         20,
         "Raticate"
     ],
     [
-        20,
-        "Alolan Raticate"
+        "20-a", "Alolan Raticate"
     ],
     [
         21,
@@ -136,24 +134,21 @@ const dex = [
         "Raichu"
     ],
     [
-        26,
-        "Alolan Raichu"
+        "26-a", "Alolan Raichu"
     ],
     [
         27,
         "Sandshrew"
     ],
     [
-        27,
-        "Alolan Sandshrew"
+        "27-a", "Alolan Sandshrew"
     ],
     [
         28,
         "Sandslash"
     ],
     [
-        28,
-        "Alolan Sandslash"
+        "28-a", "Alolan Sandslash"
     ],
     [
         29,
@@ -192,16 +187,14 @@ const dex = [
         "Vulpix"
     ],
     [
-        37,
-        "Alolan Vulpix"
+        "37-a", "Alolan Vulpix"
     ],
     [
         38,
         "Ninetales"
     ],
     [
-        38,
-        "Alolan Ninetales"
+        "38-a", "Alolan Ninetales"
     ],
     [
         39,
@@ -252,36 +245,31 @@ const dex = [
         "Diglett"
     ],
     [
-        50,
-        "Alolan Diglett"
+        "50-a", "Alolan Diglett"
     ],
     [
         51,
         "Dugtrio"
     ],
     [
-        51,
-        "Alolan Dugtrio"
+        "51-a", "Alolan Dugtrio"
     ],
     [
         52,
         "Meowth"
     ],
     [
-        52,
-        "Alolan Meowth"
+        "52-a", "Alolan Meowth"
     ],
     [
-        52,
-        "Galarian Meowth"
+        "52-g", "Galarian Meowth"
     ],
     [
         53,
         "Persian"
     ],
     [
-        53,
-        "Alolan Persian"
+        "53-a", "Alolan Persian"
     ],
     [
         54,
@@ -304,16 +292,14 @@ const dex = [
         "Growlithe"
     ],
     [
-        58,
-        "Hisuian Growlithe"
+        "58-h", "Hisuian Growlithe"
     ],
     [
         59,
         "Arcanine"
     ],
     [
-        59,
-        "Hisuian Arcanine"
+        "59-h", "Hisuian Arcanine"
     ],
     [
         60,
@@ -380,48 +366,42 @@ const dex = [
         "Geodude"
     ],
     [
-        74,
-        "Alolan Geodude"
+        "74-a", "Alolan Geodude"
     ],
     [
         75,
         "Graveler"
     ],
     [
-        75,
-        "Alolan Graveler"
+        "75-a", "Alolan Graveler"
     ],
     [
         76,
         "Golem"
     ],
     [
-        76,
-        "Alolan Golem"
+        "76-a", "Alolan Golem"
     ],
     [
         77,
         "Ponyta"
     ],
     [
-        77,
-        "Galarian Ponyta"
+        "77-g", "Galarian Ponyta"
     ],
     [
         78,
         "Rapidash"
     ],
     [
-        78,
-        "Galarian Rapidash"
+        "78-g", "Galarian Rapidash"
     ],
     [
         79,
         "Slowpoke"
     ],
     [
-        79,
-        "Galarian Slowpoke"
+        "79-g", "Galarian Slowpoke"
     ],
     [
         80,
@@ -432,8 +412,7 @@ const dex = [
         "Mega Slowbro"
     ],
     [
-        80,
-        "Galarian Slowbro"
+        "80-g", "Galarian Slowbro"
     ],
     [
         81,
@@ -448,8 +427,8 @@ const dex = [
         "Farfetch'd"
     ],
     [
-        83,
-        "Farfetch'd(GalarianFarfetch'd)"
+        "83-g",
+        "Galarian Farfetch'd"
     ],
     [
         84,
@@ -472,16 +451,14 @@ const dex = [
         "Grimer"
     ],
     [
-        88,
-        "Alolan Grimer"
+        "88-a", "Alolan Grimer"
     ],
     [
         89,
         "Muk"
     ],
     [
-        89,
-        "Alolan Muk"
+        "89-a", "Alolan Muk"
     ],
     [
         90,
@@ -532,16 +509,14 @@ const dex = [
         "Voltorb"
     ],
     [
-        100,
-        "Hisuian Voltorb"
+        "100-h", "Hisuian Voltorb"
     ],
     [
         101,
         "Electrode"
     ],
     [
-        101,
-        "Hisuian Electrode"
+        "101-h", "Hisuian Electrode"
     ],
     [
         102,
@@ -552,8 +527,7 @@ const dex = [
         "Exeggutor"
     ],
     [
-        103,
-        "Alolan Exeggutor"
+        "103-a", "Alolan Exeggutor"
     ],
     [
         104,
@@ -564,8 +538,7 @@ const dex = [
         "Marowak"
     ],
     [
-        105,
-        "Alolan Marowak"
+        "105-a", "Alolan Marowak"
     ],
     [
         106,
@@ -588,8 +561,7 @@ const dex = [
         "Weezing"
     ],
     [
-        110,
-        "Galarian Weezing"
+        "110-g", "Galarian Weezing"
     ],
     [
         111,
@@ -640,11 +612,10 @@ const dex = [
     ],
     [
         122,
-        "Mr.Mime"
+        "Mr. Mime"
     ],
     [
-        122,
-        "Galarian Mr.Mime"
+        "122-g", "Galarian Mr. Mime"
     ],
     [
         123,
@@ -756,24 +727,21 @@ const dex = [
         "Articuno"
     ],
     [
-        144,
-        "Galarian Articuno"
+        "144-g", "Galarian Articuno"
     ],
     [
         145,
         "Zapdos"
     ],
     [
-        145,
-        "Galarian Zapdos"
+        "145-g", "Galarian Zapdos"
     ],
     [
         146,
         "Moltres"
     ],
     [
-        146,
-        "Galarian Moltres"
+        "146-g", "Galarian Moltres"
     ],
     [
         147,
@@ -827,8 +795,7 @@ const dex = [
         "Typhlosion"
     ],
     [
-        157,
-        "Hisuian Typhlosion"
+        "157-h", "Hisuian Typhlosion"
     ],
     [
         158,
@@ -1006,8 +973,7 @@ const dex = [
         "Slowking"
     ],
     [
-        199,
-        "Galarian Slowking"
+        "199-g", "Galarian Slowking"
     ],
     [
         200,
@@ -1061,8 +1027,7 @@ const dex = [
         "Qwilfish"
     ],
     [
-        211,
-        "Hisuian Qwilfish"
+        "211-h", "Hisuian Qwilfish"
     ],
     [
         212,
@@ -1087,8 +1052,7 @@ const dex = [
         "Sneasel"
     ],
     [
-        215,
-        "Hisuian Sneasel"
+        "215-h", "Hisuian Sneasel"
     ],
     [
         216,
@@ -1119,8 +1083,7 @@ const dex = [
         "Corsola"
     ],
     [
-        222,
-        "Galarian Corsola"
+        "222-g", "Galarian Corsola"
     ],
     [
         223,
@@ -1302,16 +1265,14 @@ const dex = [
         "Zigzagoon"
     ],
     [
-        263,
-        "Galarian Zigzagoon"
+        "263-g", "Galarian Zigzagoon"
     ],
     [
         264,
         "Linoone"
     ],
     [
-        264,
-        "Galarian Linoone"
+        "264-g", "Galarian Linoone"
     ],
     [
         265,
@@ -1834,7 +1795,7 @@ const dex = [
         "Kyogre"
     ],
     [
-        382,
+        "382-m",
         "Kyogre (Primal)"
     ],
     [
@@ -1842,7 +1803,7 @@ const dex = [
         "Groudon"
     ],
     [
-        383,
+        "383-m",
         "Groudon (Primal)"
     ],
     [
@@ -1850,7 +1811,8 @@ const dex = [
         "Rayquaza"
     ],
     [
-        "384-m", "Mega Rayquaza"
+        "384-m",
+        "Mega Rayquaza"
     ],
     [
         385,
@@ -1861,15 +1823,15 @@ const dex = [
         "Deoxys (Normal)"
     ],
     [
-        386,
+        "386-fr",
         "Deoxys (Attack)"
     ],
     [
-        386,
+        "386-lg",
         "Deoxys (Defense)"
     ],
     [
-        386,
+        "386-em",
         "Deoxys (Speed)"
     ],
     [
@@ -1981,11 +1943,11 @@ const dex = [
         "Wormadam (Plant)"
     ],
     [
-        413,
+        "413-1",
         "Wormadam (Sandy)"
     ],
     [
-        413,
+        "413-2",
         "Wormadam (Trash)"
     ],
     [
@@ -2268,23 +2230,23 @@ const dex = [
         "Rotom"
     ],
     [
-        479,
+        "479-h",
         "Rotom (Heat)"
     ],
     [
-        479,
+        "479-w",
         "Rotom (Wash)"
     ],
     [
-        479,
+        "479-f",
         "Rotom (Frost)"
     ],
     [
-        479,
+        "479-s",
         "Rotom (Fan)"
     ],
     [
-        479,
+        "479-c",
         "Rotom (Mow)"
     ],
     [
@@ -2304,7 +2266,7 @@ const dex = [
         "Dialga"
     ],
     [
-        483,
+        "483-o",
         "Dialga (Origin)"
     ],
     [
@@ -2312,7 +2274,7 @@ const dex = [
         "Palkia"
     ],
     [
-        484,
+        "484-o",
         "Palkia (Origin)"
     ],
     [
@@ -2328,7 +2290,7 @@ const dex = [
         "Giratina"
     ],
     [
-        487,
+        "487-o",
         "Giratina (Origin)"
     ],
     [
@@ -2352,7 +2314,7 @@ const dex = [
         "Shaymin"
     ],
     [
-        492,
+        "492-pl",
         "Shaymin (Sky)"
     ],
     [
@@ -2400,8 +2362,7 @@ const dex = [
         "Samurott"
     ],
     [
-        503,
-        "Hisuian Samurott"
+        "503-h", "Hisuian Samurott"
     ],
     [
         504,
@@ -2591,8 +2552,7 @@ const dex = [
         "Lilligant"
     ],
     [
-        549,
-        "Hisuian Lilligant"
+        "549-h", "Hisuian Lilligant"
     ],
     [
         550,
@@ -2615,24 +2575,14 @@ const dex = [
         "Darumaka"
     ],
     [
-        554,
-        "Galarian Darumaka"
+        "554-g", "Galarian Darumaka"
     ],
     [
         555,
         "Darmanitan"
     ],
     [
-        555,
-        "Darmanitan (Zen)"
-    ],
-    [
-        555,
-        "Galarian Darmanitan"
-    ],
-    [
-        555,
-        "Galarian Darmanitan (Zen)"
+        "555-g", "Galarian Darmanitan"
     ],
     [
         556,
@@ -2663,8 +2613,7 @@ const dex = [
         "Yamask"
     ],
     [
-        562,
-        "Galarian Yamask"
+        "562-g", "Galarian Yamask"
     ],
     [
         563,
@@ -2699,16 +2648,14 @@ const dex = [
         "Zorua"
     ],
     [
-        570,
-        "Hisuian Zorua"
+        "570-h", "Hisuian Zorua"
     ],
     [
         571,
         "Zoroark"
     ],
     [
-        571,
-        "Hisuian Zoroark"
+        "571-h", "Hisuian Zoroark"
     ],
     [
         572,
@@ -2899,8 +2846,7 @@ const dex = [
         "Stunfisk"
     ],
     [
-        618,
-        "Galarian Stunfisk"
+        "618-g", "Galarian Stunfisk"
     ],
     [
         619,
@@ -2943,8 +2889,7 @@ const dex = [
         "Braviary"
     ],
     [
-        628,
-        "Hisuian Braviary"
+        "628-h", "Hisuian Braviary"
     ],
     [
         629,
@@ -2999,7 +2944,7 @@ const dex = [
         "Tornadus (Incarnate)"
     ],
     [
-        641,
+        "641-s",
         "Tornadus (Therian)"
     ],
     [
@@ -3007,7 +2952,7 @@ const dex = [
         "Thundurus (Incarnate)"
     ],
     [
-        642,
+        "642-s",
         "Thundurus (Therian)"
     ],
     [
@@ -3023,7 +2968,7 @@ const dex = [
         "Landorus (Incarnate)"
     ],
     [
-        645,
+        "645-s",
         "Landorus (Therian)"
     ],
     [
@@ -3031,11 +2976,11 @@ const dex = [
         "Kyurem"
     ],
     [
-        646,
+        "646-w2",
         "Kyurem (Black)"
     ],
     [
-        646,
+        "646-b2",
         "Kyurem (White)"
     ],
     [
@@ -3044,11 +2989,7 @@ const dex = [
     ],
     [
         648,
-        "Meloetta (Aria)"
-    ],
-    [
-        648,
-        "Meloetta (Pirouette)"
+        "Meloetta"
     ],
     [
         649,
@@ -3091,7 +3032,7 @@ const dex = [
         "Greninja"
     ],
     [
-        658,
+        "658-a",
         "Greninja (Ash)"
     ],
     [
@@ -3283,16 +3224,14 @@ const dex = [
         "Sliggoo"
     ],
     [
-        705,
-        "Hisuian Sliggoo"
+        "705-h", "Hisuian Sliggoo"
     ],
     [
         706,
         "Goodra"
     ],
     [
-        706,
-        "Hisuian Goodra"
+        "706-h", "Hisuian Goodra"
     ],
     [
         707,
@@ -3323,8 +3262,7 @@ const dex = [
         "Avalugg"
     ],
     [
-        713,
-        "Hisuian Avalugg"
+        "713-h", "Hisuian Avalugg"
     ],
     [
         714,
@@ -3347,11 +3285,11 @@ const dex = [
         "Zygarde (50%)"
     ],
     [
-        718,
+        "718-10",
         "Zygarde (10%)"
     ],
     [
-        718,
+        "718-p",
         "Zygarde (Complete)"
     ],
     [
@@ -3366,7 +3304,7 @@ const dex = [
         "Hoopa (Confined)"
     ],
     [
-        720,
+        "720-u",
         "Hoopa (Unbound)"
     ],
     [
@@ -3386,8 +3324,7 @@ const dex = [
         "Decidueye"
     ],
     [
-        724,
-        "Hisuian Decidueye"
+        "724-h", "Hisuian Decidueye"
     ],
     [
         725,
@@ -3474,11 +3411,11 @@ const dex = [
         "Lycanroc (Midday)"
     ],
     [
-        745,
-        "Lycanroc(Midnigh)"
+        "745-m",
+        "Lycanroc (Midnight)"
     ],
     [
-        745,
+        "745-d",
         "Lycanroc (Dusk)"
     ],
     [
@@ -3702,15 +3639,15 @@ const dex = [
         "Necrozma"
     ],
     [
-        800,
+        "800-s",
         "Necrozma (Dusk Mane)"
     ],
     [
-        800,
+        "800-l",
         "Necrozma (Dawn Wings)"
     ],
     [
-        800,
+        "800-u",
         "Necrozma (Ultra Necrozma)"
     ],
     [
@@ -3975,7 +3912,7 @@ const dex = [
     ],
     [
         866,
-        "Mr.Rime"
+        "Mr. Rime"
     ],
     [
         867,
@@ -4018,7 +3955,7 @@ const dex = [
         "Indeedee (Male)"
     ],
     [
-        876,
+        "876-f",
         "Indeedee (Female)"
     ],
     [
@@ -4110,11 +4047,11 @@ const dex = [
         "Calyrex"
     ],
     [
-        898,
+        "898-i",
         "Calyrex (Ice Rider)"
     ],
     [
-        898,
+        "898-s",
         "Calyrex (Shadow Rider)"
     ],
     [
@@ -4138,7 +4075,7 @@ const dex = [
         "Basculegion (Male)"
     ],
     [
-        902,
+        "902-f",
         "Basculegion (Female)"
     ],
     [
@@ -4154,7 +4091,7 @@ const dex = [
         "Enamorus (Incarnate)"
     ],
     [
-        905,
+        "905-s",
         "Enamorus (Therian)"
     ],
     [
@@ -4202,7 +4139,7 @@ const dex = [
         "Oinkologne (Male)"
     ],
     [
-        916,
+        "916-f",
         "Oinkologne (Female)"
     ],
     [
@@ -4538,7 +4475,7 @@ const dex = [
         "Gimmighoul (Chest)"
     ],
     [
-        999,
+        "999-r",
         "Gimmighoul (Roaming)"
     ],
     [
@@ -4664,7 +4601,26 @@ speciesInput.addEventListener("input", (event) => {
 
     dex.forEach(([id, value]) => {
         if (name == value) {
-            speciesImage.src = `https://www.serebii.net/art/th/${id}.png`;
+            // Serebii doesn't have Paldean forms
+            if (name === "Paldean Wooper") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/wooper-paldean.jpg";
+            }
+            else if (name === "Paldean Tauros (Combat Breed)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/tauros-paldean.jpg"
+            }
+            else if (name === "Paldean Tauros (Blaze Breed)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/tauros-blaze.jpg";
+            }
+            else if (name === "Paldean Tauros (Aqua Breed)") {
+                speciesImage.src = "https://img.pokemondb.net/artwork/tauros-aqua.jpg";
+            }
+            else if (name === "Ursaluna (Blood Moon)") {
+                speciesImage.src = "https://archives.bulbagarden.net/media/upload/thumb/" +
+                    "8/85/0901Ursaluna-Bloodmoon.png/900px-0901Ursaluna-Bloodmoon.png";
+            }
+            else {
+                speciesImage.src = `https://www.serebii.net/art/th/${id}.png`;
+            }
         }
     });
 });
