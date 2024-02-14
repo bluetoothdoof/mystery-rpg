@@ -245,7 +245,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d4",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "bug",
+            "poison"
+        ]
     },
     {
         "id": 16,
@@ -293,7 +297,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "normal",
+            "flying"
+        ]
     },
     {
         "id": 19,
@@ -1060,7 +1068,10 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic"
+        ]
     },
     {
         "id": 66,
@@ -1335,7 +1346,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "water",
+            "psychic"
+        ]
     },
     {
         "id": "80-g",
@@ -1573,7 +1588,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "ghost",
+            "poison"
+        ]
     },
     {
         "id": 95,
@@ -1904,7 +1923,10 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "normal"
+        ]
     },
     {
         "id": 116,
@@ -2074,7 +2096,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d8",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "bug",
+            "flying"
+        ]
     },
     {
         "id": 128,
@@ -2085,8 +2111,7 @@ const dex = [
         "soc": "d6",
         "dex": "d12",
         "types": [
-            "fighting",
-            "water"
+            "normal"
         ]
     },
     {
@@ -2096,7 +2121,10 @@ const dex = [
         "pow": "d10",
         "pro": "d8",
         "soc": "d6",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "fighting"
+        ]
     },
     {
         "id": "128-pb",
@@ -2105,7 +2133,11 @@ const dex = [
         "pow": "d10",
         "pro": "d8",
         "soc": "d6",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "fighting",
+            "fire"
+        ]
     },
     {
         "id": "128-pa",
@@ -2114,7 +2146,11 @@ const dex = [
         "pow": "d10",
         "pro": "d8",
         "soc": "d6",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "fighting",
+            "water"
+        ]
     },
     {
         "id": 129,
@@ -2148,7 +2184,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "water",
+            "dark"
+        ]
     },
     {
         "id": 131,
@@ -2307,7 +2347,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "rock",
+            "flying"
+        ]
     },
     {
         "id": 143,
@@ -2455,7 +2499,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic",
+            "fighting"
+        ]
     },
     {
         "id": "150-my",
@@ -2464,7 +2512,10 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic"
+        ]
     },
     {
         "id": 151,
@@ -2557,7 +2608,11 @@ const dex = [
         "pow": "d10",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "fire",
+            "ghost"
+        ]
     },
     {
         "id": 158,
@@ -2867,7 +2922,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "electric",
+            "ampharos"
+        ]
     },
     {
         "id": 182,
@@ -3240,7 +3299,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d8",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "steel",
+            "ground"
+        ]
     },
     {
         "id": 209,
@@ -3312,7 +3375,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d10",
-        "dex": "d8"
+        "dex": "d8",
+        "types": [
+            "bug",
+            "steel"
+        ]
     },
     {
         "id": 213,
@@ -3347,7 +3414,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d8",
-        "dex": "d8"
+        "dex": "d8",
+        "types": [
+            "bug",
+            "fighting"
+        ]
     },
     {
         "id": 215,
@@ -3470,7 +3541,10 @@ const dex = [
         "pow": "d6",
         "pro": "d10",
         "soc": "d10",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "ghost"
+        ]
     },
     {
         "id": 223,
@@ -3568,7 +3642,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "dark",
+            "fire"
+        ]
     },
     {
         "id": 230,
@@ -3810,7 +3888,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d8"
+        "dex": "d8",
+        "types": [
+            "rock",
+            "dark"
+        ]
     },
     {
         "id": 249,
@@ -3894,7 +3976,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "grass",
+            "dragon"
+        ]
     },
     {
         "id": 255,
@@ -3941,7 +4027,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "fire",
+            "fighting"
+        ]
     },
     {
         "id": 258,
@@ -3988,7 +4078,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d8"
+        "dex": "d8",
+        "types": [
+            "water",
+            "ground"
+        ]
     },
     {
         "id": 261,
@@ -4301,7 +4395,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic",
+            "fairy"
+        ]
     },
     {
         "id": 283,
@@ -4558,7 +4656,11 @@ const dex = [
         "pow": "d8",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "dark",
+            "ghost"
+        ]
     },
     {
         "id": 303,
@@ -4580,7 +4682,11 @@ const dex = [
         "pow": "d10",
         "pro": "d12",
         "soc": "d8",
-        "dex": "d6"
+        "dex": "d6",
+        "types": [
+            "steel",
+            "fairy"
+        ]
     },
     {
         "id": 304,
@@ -4628,7 +4734,10 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d8",
-        "dex": "d6"
+        "dex": "d6",
+        "types": [
+            "rock"
+        ]
     },
     {
         "id": 307,
@@ -4663,7 +4772,11 @@ const dex = [
         "pow": "d10",
         "pro": "d8",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "fighting",
+            "psychic"
+        ]
     },
     {
         "id": 309,
@@ -4696,7 +4809,10 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "electric"
+        ]
     },
     {
         "id": 311,
@@ -4816,7 +4932,11 @@ const dex = [
         "pow": "d12",
         "pro": "d6",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "water",
+            "dark"
+        ]
     },
     {
         "id": 320,
@@ -4875,7 +4995,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "fire",
+            "ground"
+        ]
     },
     {
         "id": 324,
@@ -5021,7 +5145,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "dragon",
+            "fairy"
+        ]
     },
     {
         "id": 335,
@@ -5281,7 +5409,10 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d10",
-        "dex": "d8"
+        "dex": "d8",
+        "types": [
+            "ghost"
+        ]
     },
     {
         "id": 355,
@@ -5351,7 +5482,10 @@ const dex = [
         "pow": "d12",
         "pro": "d4",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "dark"
+        ]
     },
     {
         "id": 360,
@@ -5396,7 +5530,10 @@ const dex = [
         "pow": "d10",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "ice"
+        ]
     },
     {
         "id": 363,
@@ -5542,7 +5679,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "dragon",
+            "flying"
+        ]
     },
     {
         "id": 374,
@@ -5590,7 +5731,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "steel",
+            "psychic"
+        ]
     },
     {
         "id": 377,
@@ -5648,7 +5793,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "dragon",
+            "psychic"
+        ]
     },
     {
         "id": 381,
@@ -5670,7 +5819,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "dragon",
+            "psychic"
+        ]
     },
     {
         "id": 382,
@@ -5691,7 +5844,10 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "water"
+        ]
     },
     {
         "id": 383,
@@ -5712,7 +5868,11 @@ const dex = [
         "pow": "d12",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "ground",
+            "fire"
+        ]
     },
     {
         "id": 384,
@@ -5734,7 +5894,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "dragon",
+            "flying"
+        ]
     },
     {
         "id": 385,
@@ -5768,7 +5932,10 @@ const dex = [
         "pow": "d12",
         "pro": "d4",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic"
+        ]
     },
     {
         "id": "386-lg",
@@ -5777,7 +5944,10 @@ const dex = [
         "pow": "d6",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "psychic"
+        ]
     },
     {
         "id": "386-em",
@@ -5786,7 +5956,10 @@ const dex = [
         "pow": "d8",
         "pro": "d8",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic"
+        ]
     },
     {
         "id": 387,
@@ -6132,7 +6305,11 @@ const dex = [
         "pow": "d6",
         "pro": "d10",
         "soc": "d8",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "bug",
+            "ground"
+        ]
     },
     {
         "id": "413-2",
@@ -6141,7 +6318,11 @@ const dex = [
         "pow": "d6",
         "pro": "d8",
         "soc": "d10",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "bug",
+            "steel"
+        ]
     },
     {
         "id": 414,
@@ -6336,7 +6517,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d8",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "normal",
+            "fighting"
+        ]
     },
     {
         "id": 429,
@@ -6560,7 +6745,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "dragon",
+            "ground"
+        ]
     },
     {
         "id": 446,
@@ -6606,7 +6795,11 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "fighting",
+            "steel"
+        ]
     },
     {
         "id": 449,
@@ -6766,7 +6959,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d4"
+        "dex": "d4",
+        "types": [
+            "grass",
+            "ice"
+        ]
     },
     {
         "id": 461,
@@ -6963,7 +7160,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic",
+            "fighting"
+        ]
     },
     {
         "id": 476,
@@ -7023,7 +7224,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "electric",
+            "fire"
+        ]
     },
     {
         "id": "479-w",
@@ -7032,7 +7237,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "electric",
+            "water"
+        ]
     },
     {
         "id": "479-f",
@@ -7041,7 +7250,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "electric",
+            "ice"
+        ]
     },
     {
         "id": "479-s",
@@ -7050,7 +7263,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "electric",
+            "flying"
+        ]
     },
     {
         "id": "479-c",
@@ -7059,7 +7276,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "electric",
+            "grass"
+        ]
     },
     {
         "id": 480,
@@ -7117,7 +7338,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "steel",
+            "dragon"
+        ]
     },
     {
         "id": 484,
@@ -7139,7 +7364,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "water",
+            "dragon"
+        ]
     },
     {
         "id": 485,
@@ -7186,7 +7415,11 @@ const dex = [
         "pow": "d10",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d10"
+        "dex": "d10",
+        "types": [
+            "ghost",
+            "dragon"
+        ]
     },
     {
         "id": 488,
@@ -7255,7 +7488,11 @@ const dex = [
         "pow": "d10",
         "pro": "d6",
         "soc": "d10",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "grass",
+            "flying"
+        ]
     },
     {
         "id": 493,
@@ -7754,7 +7991,11 @@ const dex = [
         "pow": "d8",
         "pro": "d12",
         "soc": "d12",
-        "dex": "d6"
+        "dex": "d6",
+        "types": [
+            "normal",
+            "fairy"
+        ]
     },
     {
         "id": 532,
@@ -9521,7 +9762,11 @@ const dex = [
         "pow": "d12",
         "pro": "d6",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "water",
+            "dark"
+        ]
     },
     {
         "id": 659,
@@ -10363,7 +10608,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "rock",
+            "fairy"
+        ]
     },
     {
         "id": 720,
@@ -11511,7 +11760,10 @@ const dex = [
         "pow": "d12",
         "pro": "d8",
         "soc": "d12",
-        "dex": "d12"
+        "dex": "d12",
+        "types": [
+            "psychic"
+        ]
     },
     {
         "id": 801,
@@ -12842,7 +13094,11 @@ const dex = [
         "pow": "d12",
         "pro": "d10",
         "soc": "d12",
-        "dex": "d6"
+        "dex": "d6",
+        "types": [
+            "ground",
+            "normal"
+        ]
     },
     {
         "id": 902,
