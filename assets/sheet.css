@@ -44,3 +44,34 @@ h3 {
     width: 100%;
     min-height: 150px;
 }
+
+input[type="number"] {
+    background-color: #fff;
+    border: 1px solid #222;
+    width: 35px;
+    color: rgb(197, 8, 83);
+    margin-left: 10px;
+}
+
+.skill {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+#traits-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 10px;
+    height: 110px;
+}
+
+#skill-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 10px;
+}

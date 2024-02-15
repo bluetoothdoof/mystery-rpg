@@ -39,8 +39,20 @@
     <strong>Backstory</strong>
     <div contenteditable="true" id="backstory" class="editable"></div>
 
-    <div id="mechanics" style="display: flex; justify-content: center; margin: 0 auto; padding: 20px;">
-        <div id="traits">a</div>
+    <div id="mechanics" style="display: flex; justify-content: space-between; margin: 0 auto; padding: 20px;">
+        <div id="traits-box">
+            <div id="life" class="skill">
+                <strong style="font-size: 16px;">Vida</strong> <span><input type="number" value="3" min="0"
+                        id="curr-life"><strong style="font-weight: normal;"> /</strong><input type="number" value="3"
+                        min="3" max="72" id="max-life"></span>
+            </div>
+            <div id="potential" class="skill">
+                <strong style="font-size: 16px;">Potencial</strong> <input type="number" value="0" min="0">
+            </div>
+            <div id="plot-points" class="skill">
+                <strong style="font-size: 16px;">Favores Divinos</strong> <input type="number" value="0" min="0">
+            </div>
+        </div>
         <div id="skill-box">
             <div class="skill">
                 <strong style=" font-size: 16px;">Criar</strong>
@@ -107,11 +119,8 @@
 
     <!-- coisas mecânicas -->
     <div>
-        <p>pontos de vida</p>
-        <p>perícias</p>
         <p>atributos</p>
         <p>distinções</p>
-        <p>potencial</p>
     </div>
 
     <!-- ativos e complicações -->

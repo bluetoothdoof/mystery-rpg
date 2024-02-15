@@ -14767,7 +14767,7 @@ function makeTypeBox(type) {
         dark: "#705848", fairy: "#EE99AC"
     })[type];
 
-    const style = "width: 100px; color: #FFF;" +
+    const style = "width: 100%; color: #FFF;" +
         'text-align: center; font-family: "Space Mono", monospace;' +
         `background-color: ${color};` +
         "border: 1px solid #222;";
@@ -14847,3 +14847,19 @@ speciesInput.addEventListener("input", (event) => {
         }
     });
 });
+
+function updateStats() {
+    const name = speciesInput.value;
+
+    for (let i = 0; i < dex.length; ++i) {
+        const elem = dex[i];
+        if (name === elem.name) {
+            document.getElementById('con-stat').value = elem.con.slice(1);
+            document.getElementById('pow-stat').value = elem.pow.slice(1);
+            document.getElementById('pro-stat').value = elem.pro.slice(1);
+            document.getElementById('soc-stat').value = elem.soc.slice(1);
+            document.getElementById('dex-stat').value = elem.dex.slice(1);
+            break;
+        }
+    }
+}
