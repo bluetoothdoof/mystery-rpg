@@ -5,130 +5,318 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link rel="stylesheet" href="assets/sheet.css">
-    <title>Ficha de Personagem</title>
+
+    <title>Ficha</title>
 </head>
 
 <body>
-    <!-- Coisas básicas da personagem -->
-    <div id="basic" style="display: flex; margin: 0 auto;">
-        <div style="display: flex; flex-direction: column;">
-            <img id="speciesImage" src="assets/error.png" height="150px">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="goInfo(); return false;" id="info-button"> Personagem</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="goTrait(); return false;" id="trait-button">Características</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="goAsset(); return false;" id="asset-button">Ativos & Complicações</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="goIO(); return false;" id="io-button">Ler & Salvar</a>
+        </li>
+    </ul>
 
-            <div id="monTypes" style="display: flex; justify-content: center; padding-top: 20px;"></div>
+    <div id="charinfo" class="m-4 d-flex flex-column">
+        <div class="d-flex justify-content-between">
+            <img id="speciesImage" src="assets/error.png"
+                style="object-fit: scale-down; margin-left: 25px; max-width: 200px;">
+
+            <div class=" d-flex flex-column m-5">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon1">Nome</span>
+                    <input id="char-name" type="text" class="form-control" aria-label="Username"
+                        aria-describedby="addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon2">Espécie</span>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon2"
+                        id="speciesInput" list="species">
+                    <datalist id="species">
+                    </datalist>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon3">Idade</span>
+                    <input id="char-age" type="text" class="form-control" aria-label="Username"
+                        aria-describedby="addon3">
+                </div>
+
+                <div id="monTypes" class="d-flex flex-row"></div>
+            </div>
         </div>
-
-        <div style="display: flex; flex-direction: column;">
-            <strong>Nome</strong>
-            <div contenteditable="true" class="editable"></div>
-
-            <strong>Espécie</strong>
-            <input list="species" id="speciesInput">
-            <datalist id="species">
-            </datalist>
-
-            <strong>Idade</strong>
-            <div contenteditable="true" class="editable"></div>
-        </div>
-    </div>
-
-    <strong>Backstory</strong>
-    <div contenteditable="true" id="backstory" class="editable"></div>
-
-    <div id="mechanics" style="display: flex; justify-content: space-between; margin: 0 auto; padding: 20px;">
-        <div id="traits-box">
-            <div id="life" class="skill">
-                <strong style="font-size: 16px;">Vida</strong> <span><input type="number" value="3" min="0"
-                        id="curr-life"><strong style="font-weight: normal;"> /</strong><input type="number" value="3"
-                        min="3" max="72" id="max-life"></span>
-            </div>
-            <div id="potential" class="skill">
-                <strong style="font-size: 16px;">Potencial</strong> <input type="number" value="0" min="0">
-            </div>
-            <div id="plot-points" class="skill">
-                <strong style="font-size: 16px;">Favores Divinos</strong> <input type="number" value="0" min="0">
-            </div>
-        </div>
-        <div id="skill-box">
-            <div class="skill">
-                <strong style=" font-size: 16px;">Criar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Lutar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Consertar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Focar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Influenciar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Saber</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Forçar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Mover</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Notar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Estrelar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Atirar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Ocultar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Sobreviver</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Tratar</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
-            </div>
-            <div class="skill">
-                <strong style=" font-size: 16px;">Trapacear</strong>
-                <input type="number" value="4" step="2" min="4" max="12">
+        <div class="mt-5 mb-3">
+            <div class="form-floating">
+                <textarea id="char-backstory" class="form-control" id="backstoryText"
+                    style="min-height: 200px"></textarea>
+                <label for="backstoryText">Backstory</label>
             </div>
         </div>
     </div>
 
-    <!-- coisas mecânicas -->
-    <div>
-        <p>atributos</p>
-        <p>distinções</p>
+    <div id="traits" class="d-none">
+        <div class="d-flex flex-row m-3 justify-content-between">
+            <div class="bordered w-25">
+                <label for="potencial" class="form-label">Potencial</label>
+                <input type="number" class="form-control" id="potencial" min="0" value="0">
+            </div>
+
+            <div class="bordered w-40">
+                <label for="life" class="form-label">Pontos de Vida</label>
+                <div class="input-group mb-3">
+                    <input id="curr-life" type="number" class="form-control" aria-label="Username" min="0" value="0">
+                    <span class="input-group-text">/</span>
+                    <input id="max-life" type="number" class="form-control" aria-label="Server" min="3" max="72"
+                        value="3">
+                </div>
+            </div>
+
+            <div class="bordered w-25">
+                <label for="plotpoint" class="form-label">Favor Divino</label>
+                <input type="number" class="form-control" id="plotpoint" min="0" value="0">
+            </div>
+        </div>
+
+        <div class="d-flex flex-column bordered m-3">
+            <div class="d-flex flex-row justify-content-between mb-4">
+                <h5>Atributos</h5>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                    onclick="updateStats(); return false;">Ler atributos da espécie</button>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <div class="w-15">
+                    <label for="con-stat" class="form-label stat-label">Constituição</label>
+                    <input type="number" class="form-control" id="con-stat" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="pow-stat" class="form-label stat-label">Poder</label>
+                    <input type="number" class="form-control" id="pow-stat" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="pro-stat" class="form-label stat-label">Proteção</label>
+                    <input type="number" class="form-control" id="pro-stat" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="soc-stat" class="form-label stat-label">Social</label>
+                    <input type="number" class="form-control" id="soc-stat" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="dex-stat" class="form-label stat-label">Destreza</label>
+                    <input type="number" class="form-control" id="dex-stat" min="4" max="12" step="2" value="4">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between m-3">
+            <div class="d-flex flex-column w-100 bordered">
+                <h5 class="pb-2 mb-4">Perícias</h5>
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="d-flex flex-column w-30">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill1">Criar</span>
+                            <input id="skill1-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill2">Lutar</span>
+                            <input id="skill2-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill3">Consertar</span>
+                            <input id="skill3-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill3">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill4">Focar</span>
+                            <input id="skill4-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill4">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill5">Influenciar</span>
+                            <input id="skill5-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill5">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column w-30">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill6">Saber</span>
+                            <input id="skill6-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill6">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill7">Forçar</span>
+                            <input id="skill7-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill7">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill8">Mover</span>
+                            <input id="skill8-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill8">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill9">Notar</span>
+                            <input id="skill9-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill9">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill10">Estrelar</span>
+                            <input id="skill10-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill10">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column w-30">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill11">Atirar</span>
+                            <input id="skill11-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill11">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill12">Ocultar</span>
+                            <input id="skill12-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill12">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill13">Sobreviver</span>
+                            <input id="skill13-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill13">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill14">Tratar</span>
+                            <input id="skill14-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill14">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill15">Trapacear</span>
+                            <input id="skill15-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill15">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column m-3 bordered">
+            <h5 class="pb-2 mb-4">Distinções</h5>
+            <div class="d-flex flex-column pb-5" id="speciesDistinction">
+                <h5 id="speciesDistinctionName" class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(0); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(0); return false;">Deletar efeito</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column pb-5" id="customDistinction1">
+                <h5 id="customDistinctionName1" contenteditable=true class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(1); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(1); return false;">Deletar efeito</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column pb-5" id="customDistinction2">
+                <h5 id="customDistinctionName2" contenteditable=true class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(2); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(2); return false;">Deletar efeito</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column" id="customDistinction3">
+                <h5 id="customDistinctionName3" contenteditable=true class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(3); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(3); return false;">Deletar efeito</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- ativos e complicações -->
-    <div>
-        <p>ativos</p>
-        <p>complicações</p>
+    <div id="assets" class="d-none">
+        <div class="d-flex flex-row justify-content-between m-3">
+            <div class="d-flex flex-column w-47">
+                <div class="d-flex flex-column bordered mb-3" id="asset-box">
+                    <h5>Ativos</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createAsset(false); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteAsset(false); return false;">-</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column bordered" id="asset-box-chronic">
+                    <h5>Ativos Assinatura</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createAsset(true); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteAsset(true); return false;">-</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column w-47">
+                <div class="d-flex flex-column bordered mb-3" id="complication-box">
+                    <h5>Complicações</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createComplication(false); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteComplication(false); return false;">-</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column bordered" id="complication-box-chronic">
+                    <h5>Complicações Crônicas</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createComplication(true); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteComplication(true); return false;">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div id="io" class="d-none">
+        <div class="d-flex flex-row justify-content-between m-3">
+            <button type="button" class="btn btn-outline-danger w-47"
+                onclick="readContext(); return false;">Importar</button>
+            <button type=" button" class="btn btn-outline-success w-47"
+                onclick="buildContext(); return false;">Exportar</button>
+        </div>
+        <textarea class="m-3" id="io-box" cols="58" rows="15"></textarea>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/nav.js"></script>
     <script src="assets/dex.js"></script>
 </body>
 
