@@ -253,7 +253,50 @@
         </div>
     </div>
 
-    <div id="assets" class="d-none"></div>
+    <div id="assets" class="d-none">
+        <div class="d-flex flex-row justify-content-between m-3">
+            <div class="d-flex flex-column w-47">
+                <div class="d-flex flex-column bordered mb-3" id="asset-box">
+                    <h5>Ativos</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createAsset(false); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteAsset(false); return false;">-</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column bordered" id="asset-box-chronic">
+                    <h5>Ativos Assinatura</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createAsset(true); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteAsset(true); return false;">-</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column w-47">
+                <div class="d-flex flex-column bordered mb-3" id="complication-box">
+                    <h5>Complicações</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createComplication(false); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteComplication(false); return false;">-</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column bordered" id="complication-box-chronic">
+                    <h5>Complicações Crônicas</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createComplication(true); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteComplication(true); return false;">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="io" class="d-none"></div>
 

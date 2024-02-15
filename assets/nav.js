@@ -84,3 +84,63 @@ function deleteSFX(number) {
         ps[ps.length - 1].remove();
     }
 }
+
+function createAsset(isChronic) {
+    const p = document.createElement('p');
+    p.innerHTML = '<strong contenteditable="true">Nome</strong> (<span contenteditable="true">d6</span>)';
+
+    let id = "asset-box";
+    if (isChronic) {
+        id += "-chronic";
+    }
+
+    let parent = document.getElementById(id);
+
+    let buttons = [...parent.children];
+    buttons = buttons[buttons.length - 1];
+
+    buttons.before(p);
+}
+
+function deleteAsset(isChronic) {
+    let id = "asset-box";
+    if (isChronic) {
+        id += "-chronic";
+    }
+
+    const ps = [...document.getElementById(id).children].filter(e => e.tagName === "P");
+
+    if (ps.length > 0) {
+        ps[ps.length - 1].remove();
+    }
+}
+
+function createComplication(isChronic) {
+    const p = document.createElement('p');
+    p.innerHTML = '<strong contenteditable="true">Nome</strong> (<span contenteditable="true">d6</span>)';
+
+    let id = "complication-box";
+    if (isChronic) {
+        id += "-chronic";
+    }
+
+    let parent = document.getElementById(id);
+
+    let buttons = [...parent.children];
+    buttons = buttons[buttons.length - 1];
+
+    buttons.before(p);
+}
+
+function deleteComplication(isChronic) {
+    let id = "complication-box";
+    if (isChronic) {
+        id += "-chronic";
+    }
+
+    const ps = [...document.getElementById(id).children].filter(e => e.tagName === "P");
+
+    if (ps.length > 0) {
+        ps[ps.length - 1].remove();
+    }
+}
