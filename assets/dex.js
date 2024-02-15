@@ -14844,6 +14844,9 @@ speciesInput.addEventListener("input", (event) => {
                     span.appendChild(type);
                 }
             }
+
+            // Changing species distinction's name
+            document.getElementById('speciesDistinctionName').innerHTML = name + " (d8)";
         }
     });
 });
