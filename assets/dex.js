@@ -14781,74 +14781,76 @@ function makeTypeBox(type) {
 const speciesInput = document.getElementById("speciesInput");
 const speciesImage = document.getElementById("speciesImage");
 
+
+function changeHandler(elem, name) {
+    const id = elem.id;
+    const value = elem.name;
+
+    if (name === value) {
+        hasSet = true;
+
+        // Serebii doesn't have Paldean forms
+        if (name === "Paldean Wooper") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/wooper-paldean.jpg";
+        }
+        else if (name === "Paldean Tauros (Combat Breed)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/tauros-paldean.jpg"
+        }
+        else if (name === "Paldean Tauros (Blaze Breed)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/tauros-blaze.jpg";
+        }
+        else if (name === "Paldean Tauros (Aqua Breed)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/tauros-aqua.jpg";
+        }
+        else if (name === "Ursaluna (Blood Moon)") {
+            speciesImage.src = "https://archives.bulbagarden.net/media/upload/thumb/" +
+                "8/85/0901Ursaluna-Bloodmoon.png/900px-0901Ursaluna-Bloodmoon.png";
+        }
+        else if (name === "Urshifu (Rapid Strike)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/urshifu-rapid-strike.jpg";
+        }
+        else if (name === "Toxtricity (Low Key)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/toxtricity-low-key.jpg";
+        }
+        else if (name === "Oricorio (Pom Pom)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-pom-pom.jpg";
+        }
+        else if (name === "Oricorio (Pa'u)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-pau.jpg";
+        }
+        else if (name === "Oricorio (Sensu)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-sensu.jpg";
+        }
+        else if (name === "Tatsugiri (Droopy)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/tatsugiri-droopy.jpg";
+        }
+        else if (name === "Tatsugiri (Stretchy)") {
+            speciesImage.src = "https://img.pokemondb.net/artwork/tatsugiri-stretchy.jpg";
+        }
+        else {
+            speciesImage.src = `https://www.serebii.net/art/th/${id}.png`;
+        }
+
+        // Clearing type icons
+        const span = document.getElementById('monTypes');
+        span.innerHTML = "";
+
+        // Adding type icons
+        if (elem.types) {
+            for (let i = 0; i < elem.types.length; ++i) {
+                const type = makeTypeBox(elem.types[i]);
+                span.appendChild(type);
+            }
+        }
+
+        // Changing species distinction's name
+        document.getElementById('speciesDistinctionName').innerHTML = name + " (d8)";
+    }
+}
+
 speciesInput.addEventListener("input", (event) => {
     const name = event.target.value;
-
-    dex.forEach(elem => {
-        const id = elem.id;
-        const value = elem.name;
-
-        if (name === value) {
-            hasSet = true;
-
-            // Serebii doesn't have Paldean forms
-            if (name === "Paldean Wooper") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/wooper-paldean.jpg";
-            }
-            else if (name === "Paldean Tauros (Combat Breed)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/tauros-paldean.jpg"
-            }
-            else if (name === "Paldean Tauros (Blaze Breed)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/tauros-blaze.jpg";
-            }
-            else if (name === "Paldean Tauros (Aqua Breed)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/tauros-aqua.jpg";
-            }
-            else if (name === "Ursaluna (Blood Moon)") {
-                speciesImage.src = "https://archives.bulbagarden.net/media/upload/thumb/" +
-                    "8/85/0901Ursaluna-Bloodmoon.png/900px-0901Ursaluna-Bloodmoon.png";
-            }
-            else if (name === "Urshifu (Rapid Strike)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/urshifu-rapid-strike.jpg";
-            }
-            else if (name === "Toxtricity (Low Key)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/toxtricity-low-key.jpg";
-            }
-            else if (name === "Oricorio (Pom Pom)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-pom-pom.jpg";
-            }
-            else if (name === "Oricorio (Pa'u)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-pau.jpg";
-            }
-            else if (name === "Oricorio (Sensu)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/oricorio-sensu.jpg";
-            }
-            else if (name === "Tatsugiri (Droopy)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/tatsugiri-droopy.jpg";
-            }
-            else if (name === "Tatsugiri (Stretchy)") {
-                speciesImage.src = "https://img.pokemondb.net/artwork/tatsugiri-stretchy.jpg";
-            }
-            else {
-                speciesImage.src = `https://www.serebii.net/art/th/${id}.png`;
-            }
-
-            // Clearing type icons
-            const span = document.getElementById('monTypes');
-            span.innerHTML = "";
-
-            // Adding type icons
-            if (elem.types) {
-                for (let i = 0; i < elem.types.length; ++i) {
-                    const type = makeTypeBox(elem.types[i]);
-                    span.appendChild(type);
-                }
-            }
-
-            // Changing species distinction's name
-            document.getElementById('speciesDistinctionName').innerHTML = name + " (d8)";
-        }
-    });
+    dex.forEach(elem => changeHandler(elem, name));
 });
 
 function updateStats() {

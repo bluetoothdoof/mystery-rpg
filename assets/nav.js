@@ -190,11 +190,91 @@ function buildContext() {
     document.getElementById('io-box').value = JSON.stringify(ctx, null, 2);
 }
 
+function handleContextError(ctx) {
+    const messages = [];
+
+    if (ctx === null) {
+        messages.push("Erro lendo arquivo de save. Garanta que não esqueceu de copiar {} ao colar aqui.");
+    }
+
+    const mustHaves = ['name', 'species', 'age', 'backstory',
+        'potential', 'life', 'plotpoint',
+        'constat', 'powstat', 'prostat', 'socstat', 'dexstat',
+        'skills', 'speciesSFX', 'customSFXs',
+        'assets', 'chronicAssets', 'complications', 'chronicComplications'];
+    for (let i = 0; i < mustHaves.length; ++i) {
+        if (ctx[mustHaves[i]] === undefined || ctx[mustHaves[i]] === null) {
+            messages.push(`O save deve ter algum dado correspondendo a chave "${mustHaves[i]}", mesmo que seja "" ou []`);
+        }
+    }
+
+    if (ctx.life.length !== 2 || ctx.life.some(e => isNaN(+e) || +e !== (+e | 0))) {
+        messages.push("A chave life deve ter um arranjo de 2 números inteiros");
+    }
+
+    const numeric = ['potential', 'plotpoint'];
+    for (let i = 0; i < numeric.length; ++i) {
+        const val = +ctx[numeric[i]];
+        if (ctx[numeric[i]] === "" || isNaN(val) || val !== (val | 0) || val < 0) {
+            messages.push(`A chave ${numeric[i]} deve ser um número inteiro maior ou igual a 0`);
+        }
+    }
+
+    if (ctx.skills.length != 15) {
+        messages.push("A chave skills deve ser um vetor de 15 valores, cada um no valor de 4, 6, 8, 10 ou 12.");
+    } else if (ctx.skills.some(e => ![4, 6, 8, 10, 12].includes(+e))) {
+        messages.push("Todos os elementos da chave skills devem ser 4, 6, 8, 10 ou 12");
+    }
+
+    const stats = ['constat', 'powstat', 'prostat', 'socstat', 'dexstat'];
+    for (const stat of stats) {
+        if (![4, 6, 8, 10, 12].includes(+ctx[stat])) {
+            messages.push(`A chave ${stat} deve ter um valor de 4, 6, 8, 10 ou 12.`)
+        }
+    }
+
+    const arrays = ['speciesSFX', 'customSFXs', 'assets', 'chronicAssets', 'complications', 'chronicComplications'];
+    for (const array of arrays) {
+        if (array.length === undefined) {
+            messages.push(`A chave ${array} deve ser um arranjo.`);
+        }
+    }
+
+    if (messages.length === 0) {
+        return false;
+    }
+
+    const parent = document.getElementById('io');
+    const reference = document.getElementById('io-box');
+    for (const msg of messages) {
+        const fullMsg = msg + '\nClique pra apagar a mensagem.';
+
+        const elem = document.createElement('div');
+        elem.classList.add('alert');
+        elem.classList.add('alert-warning');
+
+        elem.innerText = fullMsg;
+
+        parent.insertBefore(elem, reference);
+
+        elem.onclick = () => { elem.parentNode.removeChild(elem) };
+    }
+
+    return true;
+}
+
 function readContext() {
     const ctx = JSON.parse(document.getElementById('io-box').value);
 
+    if (handleContextError(ctx)) {
+        return;
+    }
+
     document.getElementById('char-name').value = ctx.name;
+
     document.getElementById('speciesInput').value = ctx.species;
+    dex.forEach(elem => changeHandler(elem, ctx.species));
+
     document.getElementById('char-age').value = ctx.age;
     document.getElementById('char-backstory').value = ctx.backstory;
 
@@ -256,7 +336,7 @@ function readContext() {
         deleteComplication(false);
     }
 
-    for (let i = 0; i < ctx.assets.length; ++i) {
+    for (let i = 0; i < ctx.complications.length; ++i) {
         createComplication(false, ctx.complications[i]);
     }
 
@@ -265,7 +345,7 @@ function readContext() {
         deleteComplication(true);
     }
 
-    for (let i = 0; i < ctx.chronicAssets.length; ++i) {
+    for (let i = 0; i < ctx.chronicComplications.length; ++i) {
         createComplication(true, ctx.chronicComplications[i]);
     }
 }
