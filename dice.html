@@ -15,25 +15,37 @@
             color: #B10906;
         }
 
-        .w-15 {
-            width: 15%;
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
         }
     </style>
 
-    <title>Ficha</title>
+    <title>Dados</title>
 </head>
 
 <body>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" href="#" onclick="goDice(); return false;" id="dice-button">Dados</a>
+            <a class="nav-link" href="#" onclick="goDice(); return false;" id="dice-button">Dados</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" onclick="goDamage(); return false;" id="dmg-button">Dano</a>
+            <a class="nav-link active" href="#" onclick="goDamage(); return false;" id="dmg-button">Dano</a>
         </li>
     </ul>
 
-    <div id="dice" class="m-3">
+    <div id="dice" class="d-none m-3">
         <div class="d-flex flex-row m-2">
             <input type="text" class="form-control" name="dice" id="dice-input" style="margin-right: 10px">
             <button class="btn btn-dark" id="roll-btn" onclick="procDice(); return false;">Rolar</button>
@@ -42,8 +54,8 @@
         </div>
     </div>
 
-    <div id="dmg" class="d-none">
-        <div class="d-flex flex-row justify-content-around m-2">
+    <div id="dmg" class="m-3">
+        <div class="d-flex flex-row justify-content-around">
             <div class="d-flex flex-column justify-content-around">
                 <div class="d-flex flex-column">
                     <label for="atk-type">Tipo do Ataque</label>
@@ -138,7 +150,7 @@
             <button class="btn btn-dark w-100" id="dmg-btn" onclick="procDmg(); return false;">Rolar</button>
         </div>
 
-        <div class="alert alert-secondary m-2" role="alert" id="dmg-results">
+        <div class="alert alert-secondary mt-2" role="alert" id="dmg-results">
         </div>
 
         <script src="assets/dice-nav.js"></script>
