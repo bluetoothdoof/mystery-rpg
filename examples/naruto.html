@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="../assets/sheet.css">
 
-    <title>Ficha - Naruto</title>
+    <title>Ficha</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             <a class="nav-link" href="#" onclick="goTrait(); return false;" id="trait-button">Características</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" onclick="goAsset(); return false;" id="asset-button">Ativos & Complicações</a>
+            <a class="nav-link" href="#" onclick="goAsset(); return false;" id="asset-button">Condições</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#" onclick="goIO(); return false;" id="io-button">Ler & Salvar</a>
@@ -31,44 +31,40 @@
 
     <div id="charinfo" class="m-4 d-flex flex-column">
         <div class="d-flex justify-content-between">
-            <img id="speciesImage" src="https://www.serebii.net/art/th/37.png"
+            <img id="speciesImage" src="../assets/error.png"
                 style="object-fit: scale-down; margin-left: 25px; max-width: 200px;">
 
             <div class=" d-flex flex-column m-5">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="addon1">Nome</span>
-                    <input id="char-name" readonly type="text" class="form-control" aria-label="Username"
-                        aria-describedby="addon1" value="Naruto Uzumaki">
+                    <input id="char-name" type="text" class="form-control" aria-label="Username"
+                        aria-describedby="addon1" value="Naruto Uzumaki" disabled>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="addon2">Espécie</span>
-                    <input type="text" readonly class="form-control" aria-label="Username" aria-describedby="addon2"
-                        id="speciesInput" list="species" value="Vulpix">
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon2"
+                        id="speciesInput" list="species" value="Vulpix" disabled>
                     <datalist id="species">
                     </datalist>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="addon3">Idade</span>
-                    <input readonly id="char-age" type="text" class="form-control" aria-label="Username"
-                        aria-describedby="addon3" value="12 anos">
+                    <input id="char-age" type="text" class="form-control" aria-label="Username"
+                        aria-describedby="addon3" value="12 anos" disabled>
                 </div>
 
-                <div id="monTypes" class="d-flex flex-row">
-                    <div
-                        style='width: 100%; color: #FFF; text-align: center; font-family: "Space Mono", monospace; background-color: #F08030; border: 1px solid #222;'>
-                        FIRE</div>
-                </div>
+                <div id="monTypes" class="d-flex flex-row"></div>
             </div>
         </div>
         <div class="mt-5 mb-3">
             <div class="form-floating">
-                <textarea readonly id="char-backstory" class="form-control" id="backstoryText"
-                    style="min-height: 200px">Desde que nasceu, Naruto sempre foi odiado pelas pessoas da sua vila ninja, com uma exceção: o chefe - que apesar de muito atarefado, o tratava como um avô carinhoso quando podia se encontrar com ele.
+                <textarea id="char-backstory" class="form-control" id="backstoryText" style="min-height: 200px"
+                    disabled>Desde que nasceu, Naruto sempre foi odiado pelas pessoas da sua vila ninja, com uma exceção: o chefe - que apesar de muito atarefado, o tratava como um avô carinhoso quando podia se encontrar com ele.
 
 Desesperado por atenção, Naruto começou a pregar peças e agir como um palhaço pois qualquer atenção era melhor que ser ignorado. Um dia, um de seus professores falou pra ele que ele poderia se tornar um ninja forte e respeitado se ele roubasse um pergaminho com técnicas proibidas.
-
+                    
 Enquanto ele estudava e praticava essas técnicas proibidas, ele acabou se transportando para outro mundo, onde ficou forçado a tomar a forma de uma raposa!</textarea>
                 <label for="backstoryText">Backstory</label>
             </div>
@@ -77,60 +73,52 @@ Enquanto ele estudava e praticava essas técnicas proibidas, ele acabou se trans
 
     <div id="traits" class="d-none">
         <div class="d-flex flex-row m-3 justify-content-between">
-            <div class="bordered w-25">
+            <div class="bordered w-47">
                 <label for="potencial" class="form-label">Potencial</label>
-                <input type="number" readonly class="form-control" id="potencial" min="0" value="0">
+                <input type="number" class="form-control" id="potencial" min="0" value="1" disabled>
             </div>
 
-            <div class="bordered w-40">
+            <div class="bordered w-47">
                 <label for="life" class="form-label">Pontos de Vida</label>
                 <div class="input-group mb-3">
-                    <input id="curr-life" readonly type="number" class="form-control" aria-label="Username" min="0"
-                        value="18">
+                    <input id="curr-life" type="number" class="form-control" aria-label="Username" min="0" value="18"
+                        disabled>
                     <span class="input-group-text">/</span>
-                    <input id="max-life" readonly type="number" class="form-control" aria-label="Server" min="3"
-                        max="72" value="18">
+                    <input id="max-life" type="number" class="form-control" aria-label="Server" min="3" max="72"
+                        value="18" disabled>
                 </div>
-            </div>
-
-            <div class="bordered w-25">
-                <label for="plotpoint" class="form-label">Favor Divino</label>
-                <input readonly type="number" class="form-control" id="plotpoint" min="0" value="0">
             </div>
         </div>
 
         <div class="d-flex flex-column bordered m-3">
             <div class="d-flex flex-row justify-content-between mb-4">
                 <h5>Atributos</h5>
-                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="; return false;" disabled>Ler
-                    atributos
-                    da espécie</button>
             </div>
             <div class="d-flex flex-row justify-content-between">
                 <div class="w-15">
                     <label for="con-stat" class="form-label stat-label">Constituição</label>
                     <input type="number" readonly class="form-control" id="con-stat" min="4" max="12" step="2"
-                        value="10">
+                        value="10" disabled>
                 </div>
                 <div class="w-15">
                     <label for="pow-stat" class="form-label stat-label">Poder</label>
-                    <input type="number" readonly class="form-control" id="pow-stat" min="4" max="12" step="2"
-                        value="4">
+                    <input type="number" readonly class="form-control" id="pow-stat" min="4" max="12" step="2" value="4"
+                        disabled>
                 </div>
                 <div class="w-15">
                     <label for="pro-stat" class="form-label stat-label">Proteção</label>
-                    <input type="number" readonly class="form-control" id="pro-stat" min="4" max="12" step="2"
-                        value="6">
+                    <input type="number" readonly class="form-control" id="pro-stat" min="4" max="12" step="2" value="6"
+                        disabled>
                 </div>
                 <div class="w-15">
                     <label for="soc-stat" class="form-label stat-label">Social</label>
-                    <input type="number" readonly class="form-control" id="soc-stat" min="4" max="12" step="2"
-                        value="6">
+                    <input type="number" readonly class="form-control" id="soc-stat" min="4" max="12" step="2" value="6"
+                        disabled>
                 </div>
                 <div class="w-15">
                     <label for="dex-stat" class="form-label stat-label">Destreza</label>
-                    <input type="number" readonly class="form-control" id="dex-stat" min="4" max="12" step="2"
-                        value="8">
+                    <input type="number" readonly class="form-control" id="dex-stat" min="4" max="12" step="2" value="8"
+                        disabled>
                 </div>
             </div>
         </div>
@@ -143,191 +131,119 @@ Enquanto ele estudava e praticava essas técnicas proibidas, ele acabou se trans
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill1">Criar</span>
                             <input readonly id="skill1-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="4" aria-label="Username" aria-describedby="skill1">
+                                value="4" aria-label="Username" aria-describedby="skill1" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill2">Lutar</span>
                             <input readonly id="skill2-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="6" aria-label="Username" aria-describedby="skill2">
+                                value="6" aria-label="Username" aria-describedby="skill2" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill3">Consertar</span>
                             <input readonly id="skill3-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="4" aria-label="Username" aria-describedby="skill3">
+                                value="4" aria-label="Username" aria-describedby="skill3" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill4">Focar</span>
                             <input readonly id="skill4-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="4" aria-label="Username" aria-describedby="skill4">
+                                value="4" aria-label="Username" aria-describedby="skill4" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill5">Influenciar</span>
                             <input readonly id="skill5-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="4" aria-label="Username" aria-describedby="skill5">
+                                value="4" aria-label="Username" aria-describedby="skill5" disabled>
                         </div>
                     </div>
                     <div class="d-flex flex-column w-30">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill6">Saber</span>
                             <input readonly id="skill6-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="4" aria-label="Username" aria-describedby="skill6">
+                                value="4" aria-label="Username" aria-describedby="skill6" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill7">Forçar</span>
                             <input readonly id="skill7-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="8" aria-label="Username" aria-describedby="skill7">
+                                value="8" aria-label="Username" aria-describedby="skill7" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill8">Mover</span>
                             <input readonly id="skill8-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="10" aria-label="Username" aria-describedby="skill8">
+                                value="10" aria-label="Username" aria-describedby="skill8" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill9">Notar</span>
                             <input readonly id="skill9-inp" type="number" class="form-control" min="4" max="12" step="2"
-                                value="4" aria-label="Username" aria-describedby="skill9">
+                                value="4" aria-label="Username" aria-describedby="skill9" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill10">Estrelar</span>
                             <input readonly id="skill10-inp" type="number" class="form-control" min="4" max="12"
-                                step="2" value="6" aria-label="Username" aria-describedby="skill10">
+                                step="2" value="6" aria-label="Username" aria-describedby="skill10" disabled>
                         </div>
                     </div>
                     <div class="d-flex flex-column w-30">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill11">Atirar</span>
                             <input readonly id="skill11-inp" type="number" class="form-control" min="4" max="12"
-                                step="2" value="4" aria-label="Username" aria-describedby="skill11">
+                                step="2" value="4" aria-label="Username" aria-describedby="skill11" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill12">Ocultar</span>
                             <input readonly id="skill12-inp" type="number" class="form-control" min="4" max="12"
-                                step="2" value="6" aria-label="Username" aria-describedby="skill12">
+                                step="2" value="6" aria-label="Username" aria-describedby="skill12" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill13">Sobreviver</span>
                             <input readonly id="skill13-inp" type="number" class="form-control" min="4" max="12"
-                                step="2" value="6" aria-label="Username" aria-describedby="skill13">
+                                step="2" value="6" aria-label="Username" aria-describedby="skill13" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill14">Tratar</span>
                             <input readonly id="skill14-inp" type="number" class="form-control" min="4" max="12"
-                                step="2" value="4" aria-label="Username" aria-describedby="skill14">
+                                step="2" value="4" aria-label="Username" aria-describedby="skill14" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="skill15">Trapacear</span>
                             <input readonly id="skill15-inp" type="number" class="form-control" min="4" max="12"
-                                step="2" value="6" aria-label="Username" aria-describedby="skill15">
+                                step="2" value="6" aria-label="Username" aria-describedby="skill15" disabled>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="d-flex flex-column m-3 bordered">
-            <h5 class="pb-2 mb-4">Distinções</h5>
-            <div class="d-flex flex-column pb-5" id="speciesDistinction">
-                <h5 id="speciesDistinctionName" class="distinction">Vulpix (d8)</h5>
-                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
-                    normal e ganhe um Favor Divino.</p>
-                <p><strong>Chakra de Raposa</strong> - Quando calcular dano, aumente os dados na rolagem, mas em
-                    compensação você toma o mesmo dano que aflige diretamente no oponente.</p>
+            <h5 class="pb-2 mb-4">Habilidades</h5>
+            <div class="d-flex flex-column pb-5" id="abilities">
+                <p><strong>Auto-sabotagem</strong> - Use um d4 invés de d8 no dado de brinde e ganhe um Ponto de
+                    Potencial.</p>
+                <p><strong>Chakra de Raposa</strong> - Quando calcular dano, você pode aumentar os dados na rolagem, mas
+                    em compensação você toma o mesmo dano que aflige diretamente no oponente.</p>
                 <div class="d-flex flex-row justify-content-between">
-                    <button type="button" class="btn btn-outline-success w-47" onclick="return false;"
-                        disabled>Adicionar
-                        efeito</button>
-                    <button type=" button" class="btn btn-outline-danger w-47" onclick="return false;" disabled>Deletar
-                        efeito</button>
-                </div>
-            </div>
-            <div class="d-flex flex-column pb-5" id="customDistinction1">
-                <h5 id="customDistinctionName1" class="distinction">Ninja da Folha (d8)</h5>
-                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
-                    normal e ganhe um Favor Divino.</p>
-                <div class="d-flex flex-row justify-content-between">
-                    <button type="button" class="btn btn-outline-success w-47" onclick="return false;"
-                        disabled>Adicionar
-                        efeito</button>
-                    <button type=" button" class="btn btn-outline-danger w-47" onclick="return false;" disabled>Deletar
-                        efeito</button>
-                </div>
-            </div>
-            <div class="d-flex flex-column pb-5" id="customDistinction2">
-                <h5 id="customDistinctionName2" class="distinction">Olhem pra mim! (d8)</h5>
-                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
-                    normal e ganhe um Favor Divino.</p>
-                <div class="d-flex flex-row justify-content-between">
-                    <button type="button" class="btn btn-outline-success w-47" onclick="; return false;"
-                        disabled>Adicionar efeito</button>
-                    <button type=" button" class="btn btn-outline-danger w-47" onclick="; return false;"
-                        disabled>Deletar efeito</button>
-                </div>
-            </div>
-            <div class="d-flex flex-column" id="customDistinction3">
-                <h5 id="customDistinctionName3" class="distinction">Cinco minutos de porrada sem
-                    perder a amizade (d8)</h5>
-                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
-                    normal e ganhe um Favor Divino.</p>
-                <p><strong>Terapia no Jutsu</strong> - Gaste um ponto de Favor Divino e aumente um dado à sua escolha
-                    (menor que um d12) para testes de Influenciar inimigos ou amenizar complicações mentais em aliados.
-                </p>
-                <div class="d-flex flex-row justify-content-between">
-                    <button type="button" class="btn btn-outline-success w-47" onclick="return false;"
-                        disabled>Adicionar efeito</button>
-                    <button type=" button" class="btn btn-outline-danger w-47" onclick="return false;" disabled>Deletar
-                        efeito</button>
+                    <button type="button" class="btn btn-outline-success w-47" onclick="createSFX(); return false;"
+                        disabled>+</button>
+                    <button type=" button" class="btn btn-outline-danger w-47" onclick="deleteSFX(); return false;"
+                        disabled>-</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="assets" class="d-none">
-        <div class="d-flex flex-row justify-content-between m-3">
-            <div class="d-flex flex-column w-47">
-                <div class="d-flex flex-column bordered mb-3" id="asset-box">
-                    <h5>Ativos</h5>
-                    <div class="d-flex flex-row justify-content-between">
-                        <button type="button" class="btn btn-outline-success w-47" onclick="return false;"
-                            disabled>+</button>
-                        <button type=" button" class="btn btn-outline-danger w-47" onclick="; return false;"
-                            disabled>-</button>
-                    </div>
-                </div>
-                <div class="d-flex flex-column bordered" id="asset-box-chronic">
-                    <h5>Ativos Assinatura</h5>
-                    <div class="d-flex flex-row justify-content-between">
-                        <button type="button" class="btn btn-outline-success w-47" onclick="; return false;"
-                            disabled>+</button>
-                        <button type=" button" class="btn btn-outline-danger w-47" onclick="; return false;"
-                            disabled>-</button>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex flex-column w-47">
-                <div class="d-flex flex-column bordered mb-3" id="complication-box">
-                    <h5>Complicações</h5>
-                    <div class="d-flex flex-row justify-content-between">
-                        <button type="button" class="btn btn-outline-success w-47" onclick="; return false;"
-                            disabled>+</button>
-                        <button type=" button" class="btn btn-outline-danger w-47" onclick="; return false;"
-                            disabled>-</button>
-                    </div>
-                </div>
-                <div class="d-flex flex-column bordered" id="complication-box-chronic">
-                    <h5>Complicações Crônicas</h5>
-                    <div class="d-flex flex-row justify-content-between">
-                        <button type="button" class="btn btn-outline-success w-47" onclick="; return false;"
-                            disabled>+</button>
-                        <button type=" button" class="btn btn-outline-danger w-47" onclick="; return false;"
-                            disabled>-</button>
-                    </div>
-                </div>
+        <div id="asset-box" class="d-flex flex-column bordered m-3">
+            <h5 class="mb-3">Condições</h5>
+            <div class="d-flex flex-row justify-content-between">
+                <button type="button" class="btn btn-outline-success w-47" onclick="createAsset(false); return false;"
+                    disabled>+</button>
+                <button type=" button" class="btn btn-outline-danger w-47" onclick="deleteAsset(false); return false;"
+                    disabled>-</button>
             </div>
         </div>
     </div>
 
     <div id="io" class="d-none">
         <div class="d-flex flex-row justify-content-between m-3">
-            <button type="button" class="btn btn-outline-danger w-47" onclick="return false;" disabled>Importar</button>
+            <button type="button" class="btn btn-outline-danger w-47" onclick="readContext(); return false;"
+                disabled>Importar</button>
             <button type=" button" class="btn btn-outline-success w-47"
                 onclick="buildContext(); return false;">Exportar</button>
         </div>
@@ -340,6 +256,9 @@ Enquanto ele estudava e praticava essas técnicas proibidas, ele acabou se trans
 
     <script src="../assets/nav.js"></script>
     <script src="../assets/dex.js"></script>
+    <script>
+        dex.forEach(elem => changeHandler(elem, "Vulpix"));
+    </script>
 </body>
 
 </html>

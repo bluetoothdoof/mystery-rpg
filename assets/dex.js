@@ -14842,9 +14842,6 @@ function changeHandler(elem, name) {
                 span.appendChild(type);
             }
         }
-
-        // Changing species distinction's name
-        document.getElementById('speciesDistinctionName').innerHTML = name + " (d8)";
     }
 }
 
