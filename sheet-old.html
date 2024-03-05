@@ -22,7 +22,7 @@
             <a class="nav-link" href="#" onclick="goTrait(); return false;" id="trait-button">Características</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" onclick="goAsset(); return false;" id="asset-button">Condições</a>
+            <a class="nav-link" href="#" onclick="goAsset(); return false;" id="asset-button">Ativos & Complicações</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#" onclick="goIO(); return false;" id="io-button">Ler & Salvar</a>
@@ -69,12 +69,12 @@
 
     <div id="traits" class="d-none">
         <div class="d-flex flex-row m-3 justify-content-between">
-            <div class="bordered w-47">
+            <div class="bordered w-25">
                 <label for="potencial" class="form-label">Potencial</label>
                 <input type="number" class="form-control" id="potencial" min="0" value="0">
             </div>
 
-            <div class="bordered w-47">
+            <div class="bordered w-40">
                 <label for="life" class="form-label">Pontos de Vida</label>
                 <div class="input-group mb-3">
                     <input id="curr-life" type="number" class="form-control" aria-label="Username" min="0" value="0">
@@ -83,11 +83,18 @@
                         value="3">
                 </div>
             </div>
+
+            <div class="bordered w-25">
+                <label for="plotpoint" class="form-label">Favor Divino</label>
+                <input type="number" class="form-control" id="plotpoint" min="0" value="0">
+            </div>
         </div>
 
         <div class="d-flex flex-column bordered m-3">
             <div class="d-flex flex-row justify-content-between mb-4">
                 <h5>Atributos</h5>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                    onclick="updateStats(); return false;">Ler atributos da espécie</button>
             </div>
             <div class="d-flex flex-row justify-content-between">
                 <div class="w-15">
@@ -202,28 +209,95 @@
             </div>
         </div>
         <div class="d-flex flex-column m-3 bordered">
-            <h5 class="pb-2 mb-4">Habilidades</h5>
-            <div class="d-flex flex-column pb-5" id="abilities">
-                <p><strong>Auto-sabotagem</strong> - Use um d4 invés de d8 no dado de brinde e ganhe um Ponto de
-                    Potencial.</p>
+            <h5 class="pb-2 mb-4">Distinções</h5>
+            <div class="d-flex flex-column pb-5" id="speciesDistinction">
+                <h5 id="speciesDistinctionName" class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
                 <div class="d-flex flex-row justify-content-between">
                     <button type="button" class="btn btn-outline-success w-47"
-                        onclick="createSFX(); return false;">+</button>
+                        onclick="createSFX(0); return false;">Adicionar efeito</button>
                     <button type=" button" class="btn btn-outline-danger w-47"
-                        onclick="deleteSFX(); return false;">-</button>
+                        onclick="deleteSFX(0); return false;">Deletar efeito</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column pb-5" id="customDistinction1">
+                <h5 id="customDistinctionName1" contenteditable=true class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(1); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(1); return false;">Deletar efeito</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column pb-5" id="customDistinction2">
+                <h5 id="customDistinctionName2" contenteditable=true class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(2); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(2); return false;">Deletar efeito</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column" id="customDistinction3">
+                <h5 id="customDistinctionName3" contenteditable=true class="distinction">??? (d8)</h5>
+                <p><strong>Atrapalhar</strong> - Quando usar essa distinção em uma rolagem, use um d4 invés do dado
+                    normal e ganhe um Favor Divino.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(3); return false;">Adicionar efeito</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(3); return false;">Deletar efeito</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="assets" class="d-none">
-        <div id="asset-box" class="d-flex flex-column bordered m-3">
-            <h5 class="mb-3">Condições</h5>
-            <div class="d-flex flex-row justify-content-between">
-                <button type="button" class="btn btn-outline-success w-47"
-                    onclick="createAsset(false); return false;">+</button>
-                <button type=" button" class="btn btn-outline-danger w-47"
-                    onclick="deleteAsset(false); return false;">-</button>
+        <div class="d-flex flex-row justify-content-between m-3">
+            <div class="d-flex flex-column w-47">
+                <div class="d-flex flex-column bordered mb-3" id="asset-box">
+                    <h5>Ativos</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createAsset(false); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteAsset(false); return false;">-</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column bordered" id="asset-box-chronic">
+                    <h5>Ativos Assinatura</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createAsset(true); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteAsset(true); return false;">-</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column w-47">
+                <div class="d-flex flex-column bordered mb-3" id="complication-box">
+                    <h5>Complicações</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createComplication(false); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteComplication(false); return false;">-</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column bordered" id="complication-box-chronic">
+                    <h5>Complicações Crônicas</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <button type="button" class="btn btn-outline-success w-47"
+                            onclick="createComplication(true); return false;">+</button>
+                        <button type=" button" class="btn btn-outline-danger w-47"
+                            onclick="deleteComplication(true); return false;">-</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

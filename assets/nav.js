@@ -51,18 +51,11 @@ function goIO() {
     document.getElementById('io').classList.remove('d-none');
 }
 
-function createSFX(number, val) {
+function createSFX(val) {
     const p = document.createElement('p');
     p.innerHTML = val ? val : '<strong contenteditable="true">Nome</strong> - <span contenteditable="true">Efeito</span>';
 
-    let parent = null;
-    if (number === 0) {
-        parent = "speciesDistinction";
-    } else {
-        parent = "customDistinction" + number;
-    }
-
-    parent = document.getElementById(parent);
+    const parent = document.getElementById("abilities");
 
     let buttons = [...parent.children];
     buttons = buttons[buttons.length - 1];
@@ -70,29 +63,21 @@ function createSFX(number, val) {
     buttons.before(p);
 }
 
-function deleteSFX(number, forceDelete) {
-    let parent = null;
-    if (number === 0) {
-        parent = "speciesDistinction";
-    } else {
-        parent = "customDistinction" + number;
-    }
+function deleteSFX(forceDelete) {
+    const parent = document.getElementById("abilities")
 
-    const ps = [...document.getElementById(parent).children].filter(e => e.tagName === "P");
+    const ps = [...parent.children].filter(e => e.tagName === "P");
 
     if (ps.length > 1 || (ps.length > 0 && forceDelete)) {
         ps[ps.length - 1].remove();
     }
 }
 
-function createAsset(isChronic, val) {
+function createAsset(val) {
     const p = document.createElement('p');
     p.innerHTML = val ? val : '<strong contenteditable="true">Nome</strong> (<span contenteditable="true">d6</span>)';
 
     let id = "asset-box";
-    if (isChronic) {
-        id += "-chronic";
-    }
 
     let parent = document.getElementById(id);
 
@@ -102,41 +87,8 @@ function createAsset(isChronic, val) {
     buttons.before(p);
 }
 
-function deleteAsset(isChronic) {
+function deleteAsset() {
     let id = "asset-box";
-    if (isChronic) {
-        id += "-chronic";
-    }
-
-    const ps = [...document.getElementById(id).children].filter(e => e.tagName === "P");
-
-    if (ps.length > 0) {
-        ps[ps.length - 1].remove();
-    }
-}
-
-function createComplication(isChronic, val) {
-    const p = document.createElement('p');
-    p.innerHTML = val ? val : '<strong contenteditable="true">Nome</strong> (<span contenteditable="true">d6</span>)';
-
-    let id = "complication-box";
-    if (isChronic) {
-        id += "-chronic";
-    }
-
-    let parent = document.getElementById(id);
-
-    let buttons = [...parent.children];
-    buttons = buttons[buttons.length - 1];
-
-    buttons.before(p);
-}
-
-function deleteComplication(isChronic) {
-    let id = "complication-box";
-    if (isChronic) {
-        id += "-chronic";
-    }
 
     const ps = [...document.getElementById(id).children].filter(e => e.tagName === "P");
 
@@ -158,7 +110,6 @@ function buildContext() {
         document.getElementById('curr-life').value,
         document.getElementById('max-life').value
     ];
-    ctx.plotpoint = document.getElementById('plotpoint').value;
 
     ctx.constat = document.getElementById('con-stat').value;
     ctx.powstat = document.getElementById('pow-stat').value;
@@ -173,19 +124,8 @@ function buildContext() {
         );
     }
 
-    ctx.speciesSFX = [...document.getElementById('speciesDistinction').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
-
-    ctx.customSFXs = []
-    for (let i = 1; i < 4; ++i) {
-        let sfxs = [...document.getElementById('customDistinction' + i).children].filter(e => e.tagName === "P").map(e => e.innerHTML);
-        ctx.customSFXs.push(sfxs);
-    }
-
+    ctx.abilities = [...document.getElementById('abilities').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
     ctx.assets = [...document.getElementById('asset-box').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
-    ctx.chronicAssets = [...document.getElementById('asset-box-chronic').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
-
-    ctx.complications = [...document.getElementById('complication-box').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
-    ctx.chronicComplications = [...document.getElementById('complication-box-chronic').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
 
     document.getElementById('io-box').value = JSON.stringify(ctx, null, 2);
 }
@@ -198,10 +138,8 @@ function handleContextError(ctx) {
     }
 
     const mustHaves = ['name', 'species', 'age', 'backstory',
-        'potential', 'life', 'plotpoint',
-        'constat', 'powstat', 'prostat', 'socstat', 'dexstat',
-        'skills', 'speciesSFX', 'customSFXs',
-        'assets', 'chronicAssets', 'complications', 'chronicComplications'];
+        'potential', 'life', 'constat', 'powstat', 'prostat', 'socstat', 'dexstat',
+        'skills', 'abilities', 'assets'];
     for (let i = 0; i < mustHaves.length; ++i) {
         if (ctx[mustHaves[i]] === undefined || ctx[mustHaves[i]] === null) {
             messages.push(`O save deve ter algum dado correspondendo a chave "${mustHaves[i]}", mesmo que seja "" ou []`);
@@ -212,7 +150,7 @@ function handleContextError(ctx) {
         messages.push("A chave life deve ter um arranjo de 2 números inteiros");
     }
 
-    const numeric = ['potential', 'plotpoint'];
+    const numeric = ['potential'];
     for (let i = 0; i < numeric.length; ++i) {
         const val = +ctx[numeric[i]];
         if (ctx[numeric[i]] === "" || isNaN(val) || val !== (val | 0) || val < 0) {
@@ -233,7 +171,7 @@ function handleContextError(ctx) {
         }
     }
 
-    const arrays = ['speciesSFX', 'customSFXs', 'assets', 'chronicAssets', 'complications', 'chronicComplications'];
+    const arrays = ['abilities', 'assets'];
     for (const array of arrays) {
         if (array.length === undefined) {
             messages.push(`A chave ${array} deve ser um arranjo.`);
@@ -281,7 +219,6 @@ function readContext() {
     document.getElementById('potencial').value = ctx.potential;
     document.getElementById('curr-life').value = ctx.life[0];
     document.getElementById('max-life').value = ctx.life[1];
-    document.getElementById('plotpoint').value = ctx.plotpoint;
 
     document.getElementById('con-stat').value = ctx.constat;
     document.getElementById('pow-stat').value = ctx.powstat;
@@ -293,59 +230,21 @@ function readContext() {
         document.getElementById('skill' + i + '-inp').value = ctx.skills[i - 1];
     }
 
-    let sfxs = [...document.getElementById('speciesDistinction').children];
-    for (let i = 0; i < sfxs.length; ++i) {
-        deleteSFX(0, true);
+    let abilities = [...document.getElementById('abilities').children];
+    for (let i = 0; i < abilities.length; ++i) {
+        deleteSFX(true);
     }
 
-    for (let i = 0; i < ctx.speciesSFX.length; ++i) {
-        createSFX(0, ctx.speciesSFX[i]);
+    for (let i = 0; i < ctx.abilities.length; ++i) {
+        createSFX(ctx.abilities[i]);
     }
 
-    for (let j = 1; j < 4; ++j) {
-        let sfxs = [...document.getElementById('customDistinction' + j).children];
-        for (let i = 0; i < sfxs.length; ++i) {
-            deleteSFX(j, true);
-        }
-
-        for (let i = 0; i < ctx.customSFXs[j - 1].length; ++i) {
-            createSFX(j, ctx.customSFXs[j - 1][i]);
-        }
-    }
-
-    sfxs = [...document.getElementById('asset-box').children];
-    for (let i = 0; i < sfxs.length; ++i) {
-        deleteAsset(false);
+    let assets = [...document.getElementById('asset-box').children];
+    for (let i = 0; i < assets.length; ++i) {
+        deleteAsset();
     }
 
     for (let i = 0; i < ctx.assets.length; ++i) {
-        createAsset(false, ctx.assets[i]);
-    }
-
-    sfxs = [...document.getElementById('asset-box-chronic').children];
-    for (let i = 0; i < sfxs.length; ++i) {
-        deleteAsset(true);
-    }
-
-    for (let i = 0; i < ctx.chronicAssets.length; ++i) {
-        createAsset(true, ctx.chronicAssets[i]);
-    }
-
-    sfxs = [...document.getElementById('complication-box').children];
-    for (let i = 0; i < sfxs.length; ++i) {
-        deleteComplication(false);
-    }
-
-    for (let i = 0; i < ctx.complications.length; ++i) {
-        createComplication(false, ctx.complications[i]);
-    }
-
-    sfxs = [...document.getElementById('complication-box-chronic').children];
-    for (let i = 0; i < sfxs.length; ++i) {
-        deleteComplication(true);
-    }
-
-    for (let i = 0; i < ctx.chronicComplications.length; ++i) {
-        createComplication(true, ctx.chronicComplications[i]);
+        createAsset(ctx.assets[i]);
     }
 }
