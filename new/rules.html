@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <title>Regras</title>
+</head>
+
+<body>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle w-100" data-bs-toggle="dropdown">Menu</button>
+
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('test'); return false;">Testes</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('stat'); return false;">Atributos e
+                    Perícias</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('condition'); return false;">Condições</a>
+            </li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('hitch'); return false;">Contratempos</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('potential'); return false;">Potencial</a>
+            </li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('skill'); return false;">Habilidades</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('combat'); return false;">Combate</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('creation'); return false;">Criar
+                    Personagem</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('life'); return false;">Recalcular Vida</a>
+            </li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('item'); return false;">Itens</a></li>
+        </ul>
+    </div>
+
+    <div id="test" class="m-3">
+        <h1>1. Testes</h1>
+
+        <p>O loop básico do jogo são testes: um jogador diz que quer fazer alguma coisa - se for algo que tem um
+            resultado
+            <strong>não óbvio</strong> - o GM determina um valor de dificuldade, o jogador descreve o que quer fazer,
+            rola
+            alguns dados e vê
+            no que deu.
+        </p>
+
+        <p>De maneira geral, o jogador vai rolar 3 dados - ocasionalmente podendo rolar mais: um dado do
+            <strong>Atributo</strong> mais relevante, um dado da <strong>Perícia</strong> mais relevante e um d8 de
+            brinde.
+        </p>
+
+        <div class="sidebar m-3 p-3">
+            <h3>Exemplo:</h3>
+
+            <p><strong>Marcos, o Machop</strong>: Tinham me falado que de vez em quando encontram pedras preciosas aqui.
+                Quero ver se eu consigo achar alguma pedra picaretando aqui por um tempinho.</p>
+
+            <p><strong>GM</strong>: OK, se você não for ficar muito tempo aqui, vai ser um pouco mais difícil. Rola
+                <strong>Ataque</strong> e <strong>Forçar</strong>. A dificuldade é <strong>11</strong>.
+            </p>
+        </div>
+
+        <p>Dito isso, o jogador não vai usar todos os dados: ele vai escolher dois dos valores para ser a soma dele, e
+            escolher um terceiro dado (se rolar mais de 3 dados) para ser o dado de efeito: um dado que diz se o efeito
+            foi
+            forte, fraco, mediano, etc.</p>
+
+        <div class="sidebar m-3 p-3">
+            <h3>Exemplo:</h3>
+
+            <p><strong> Marcos, o Machop</strong>: Eu rolei 4 (d8), 10 (d12) e 5 (d10) … Eu escolho ter
+                <strong>14</strong>
+                (d8 + d12) como resultado e usar o d10 como dado de efeito.
+            </p>
+
+            <p><strong>GM</strong>: Depois de alguns minutos, você sente algo diferente quando estava batendo na pedra …
+                com um vigor extra, você começa a cavucar mais rápido e eventualmente consegue seu prêmio: um rubi! Não
+                parece ser muito grande, mas tem uma claridade excelente.
+            </p>
+        </div>
+    </div>
+
+    <div id="stat" class="d-none m-3">
+        <h1>2. Atributos e Perícias</h1>
+        <p> Os stats principais dos personagens são <strong>Atributos</strong> e <strong>Perícias</strong>. Os stats tem
+            um
+            valor de dado associado: um de d4, d6, d8, d10 ou d12. Onde d4 representa algo muito fraco e d12 algo muito
+            forte.
+        </p>
+
+        <p> De maneira geral, quando dizemos “aumentar um dado” significa ir pro próximo dado da escala. E quando
+            dizemos
+            “diminuir um dado”, significa ir pro dado anterior. Diminuir um d4 ou aumentar um d12 causam falha e sucesso
+            automáticos, respectivamente. </p>
+
+        <h2>2.1 Atributos</h2>
+
+        <p> <strong>Atributos</strong> representam características inatas de um personagem: força, resistência,
+            velocidade,
+            etc. Temos 6 atributos nesse sistema: <strong>Constituição</strong>, <strong>Ataque</strong>,
+            <strong>Destreza</strong>, <strong>Inteligência</strong>, <strong>Sabedoria</strong> e
+            <strong>Carisma</strong>.
+        </p>
+
+        <p><strong>Constituição</strong> é importante para cálculo de vida, assim como defesa física e resistência a
+            venenos e efeitos adversos. <strong>Ataque</strong> é o valor que diz como você faz proezas físicas e
+            ataques físicos. <strong>Destreza</strong> representa sua coordenação motora física, habilidades acrobáticas
+            e capacidade de movimento.</p>
+
+        <p><strong>Inteligência</strong> é importante para ataques especiais e testes que envolvam saber ou lembrar de
+            alguma coisa. <strong>Sabedoria</strong> já diz como você se defende de ataques especiais, sociais e sua
+            capacidade de perceber o mundo ao seu redor. <strong>Carisma</strong> representa suas habilidades sociais.
+        </p>
+
+        <h2>2.2 Perícias</h2>
+
+        <p><strong>Perícias</strong> representam habilidades que uma personagem pode fazer. No sistema temas as 15 a
+            seguir:
+        </p>
+        <ul>
+            <li><strong class="ex">Criar</strong>: Criar coisas, incluindo construir e montar.</li>
+            <li><strong class="ex">Lutar</strong>: Todo tipo de combate corpo-a-corpo, incluindo com armas brancas ou de
+                impacto.</li>
+            <li><strong class="ex">Consertar</strong>: Consertar ou reparar coisas.</li>
+            <li><strong class="ex">Focar</strong>: Focar em algo ou alguém, para estudar, pensar ou concentrar sua força
+                de
+                vontade.
+            </li>
+            <li><strong class="ex">Influenciar</strong>: Fazer alguém fazer, pensar, agir ou se sentir como você quer.
+            </li>
+            <li><strong class="ex">Saber</strong>: Conhecimento geral. Tem especialidades para áreas diferentes.</li>
+            <li><strong class="ex">Forçar</strong>: Trabalho manual em geral: levantar, carregar, empurrar, cavar, etc.
+            </li>
+            <li><strong class="ex">Mover</strong>: Correr, pular, nadar, escalar, etc.</li>
+            <li><strong class="ex">Notar</strong>: Observar, sentir, escutar coisas.</li>
+            <li><strong class="ex">Estrelar</strong>: Atuar, cantar, tocar um instrumento, dar um show.</li>
+            <li><strong class="ex">Atirar</strong>: Jogar objetos, ataques à distância e/ou usar objetos como arcos e
+                bestas.</li>
+            <li><strong class="ex">Ocultar</strong>: Se desfarçar, passar sem que te notem, coisas furtivas.</li>
+            <li><strong class="ex">Sobreviver</strong>: Habilidades de sobrevivência</li>
+            <li><strong class="ex">Tratar</strong>: Primeiros socorros, curar, tratar machucados, mas também aconselhar.
+            </li>
+            <li><strong class="ex">Trapacear</strong>: Enganar alguém, bater carteiras, trapacear, etc.</li>
+        </ul>
+    </div>
+
+    <div id="condition" class="d-none m-3">
+        <h1>3. Condições</h1>
+        <p>
+            Às vezes, o personagem tem alguma coisa que dá uma vantagem (ou desvantagem) pra ele: para o sistema, essas
+            coisas são representadas como <strong>condições</strong>, que são efetivamente stats temporários.
+        </p>
+
+        <p> Se a condição for ajudar o personagem em um teste, ele rola o dado da condição junto com os outros stats. Se
+            a
+            condição for atrapalhar o personagem em um teste, o GM rola o dado da condição e adiciona o valor rolado à
+            dificuldade do teste.
+        </p>
+
+        <div class="sidebar m-3 p-3">
+            <h3>Exemplo:</h3>
+
+            <p> <strong>Horácio, o Hoothoot</strong>: Eu quero dar uma sobrevoada no vale pra ver se eu consigo achar os
+                bandidos e ver pra onde eles estão indo, sem que eles me vejam.
+            </p>
+
+            <p> <strong>GM</strong>: OK, pode rolar. Como você é de uma espécie que tá acostumada a caçar a noite, vamos
+                dizer que você pode rolar um d6 a mais. Mas como eles estão meio paranóicos, e sabem que você tá na
+                equipe e
+                provavelmente iria querer procurar eles, vou rolar aqui um d6 também pra somar à dificuldade. Deu
+                <strong>12</strong>.
+            </p>
+        </div>
+    </div>
+
+    <div id="hitch" class="d-none m-3">
+        <h1>4. Contratempos</h1>
+        <p>Quando um jogador rola um dado e dá o valor de 1, a gente chama isso de um <strong>contratempo</strong>.</p>
+
+        <p> Contratempos fazem duas coisas: causam alguma condição (geralmente negativa) pro personagem do jogador e dão
+            um ponto de <strong>Potencial</strong>.
+        </p>
+
+        <p> Quando o GM rola um contratempo, os jogadores podem gastar um ponto de Potencial para aumentar ou
+            diminuir o dado de uma condição de seu personagem, assim como aumentar ou diminuir o dado de uma condição de
+            um oponente.
+        </p>
+
+        <p>Só um jogador pode ativar um dado contratempo do GM.</p>
+    </div>
+
+    <div id="potential" class="d-none m-3">
+        <h1>5. Potencial</h1>
+        <p>Potencial representa o crescimento de um personagem e pode ser usado para várias coisas.</p>
+
+        <p>Gastando um ponto de potencial, você pode:</p>
+        <ul>
+            <li><strong>Adicionar mais dados</strong>: Antes de rolar, você pode usar um ponto para incluir mais um dado
+                de atributo ou perícia, contanto que você consiga dar uma explicação plausível de como ajudaria.</li>
+            <li><strong>Ativar um contratempo do GM</strong></li>
+            <li><strong>Criar uma condição temporária</strong>: Você sempre pode tentar fazer uma condição com um teste,
+                mas se quiser garantir (fora de combate), você pode gastar um ponto de Potencial. Essa condição teria um
+                dado d6, e é temporária.
+            </li>
+            <li><strong>Incluir mais resultados</strong>: Depois de rolar alguma coisa, você pode gastar um ponto para
+                incluir mais um dado dos que você rolou na soma do resultado final, desde que esse dado não tenha rolado
+                um contratempo. Se gastar mais pontos, pode adicionar mais dados.</li>
+            <li><strong>Dado de efeito extra</strong>: Você gasta um ponto para ter mais um dado de efeito - caso tenha
+                algum a mais elegível - o usando para criar uma condição.</li>
+        </ul>
+
+        <!-- TODO: Recalcular preços
+        <p>Gastando 5 pontos de potencial, você pode:</p>
+        <ul>
+            <li><strong>Aumentar um dado de perícia permanentemente</strong></li>
+            <li><strong>Destravar uma habilidade a mais</strong>: Com um valor máximo de 4 habilidades por personagem.
+                Destravar uma nova habilidade além desse limite significa descartar uma outra.</li>
+        </ul>
+
+        <p> Por 15 pontos de potencial, você pode aumentar um dado de atributo permanentemente e por fim, você também
+            pode
+            gastar pontos de Potencial para evoluir seu Pokémon. Os pontos necessários para evolução são o nível em que
+            o
+            Pokémon evolui (assumindo 30 para Pokémon que não evoluem por nível).</p>
+
+        <p>Ao evoluir, o Pokémon destrava uma nova habilidade e seus pontos de vida são recalculados.</p> -->
+    </div>
+
+    <div id="skill" class="d-none m-3">
+        <h1>6. Habilidades</h1>
+        <p> <strong>Habilidades</strong> são como pequenos poderes especiais que um personagem tem, de maneira geral,
+            uma
+            habilidade faz uma de quatro coisas:
+        </p>
+
+        <ul>
+            <li>Faz alguma coisa boa por um ponto de Potencial</li>
+            <li>Faz alguma coisa boa se o jogador fizer uma coisa ruim</li>
+            <li>Faz alguma coisa boa em uma situação específica</li>
+            <li>Dá uma ação especial em combate</li>
+        </ul>
+
+        <p> De maneira geral, todo jogador faz suas habilidades discutindo com o GM e toda personagem tem a habilidade
+            <strong>Auto-sabotagem</strong> que tem como efeito “Role um d4 invés de d8 no dado de brinde, e ganhe um
+            Ponto de Potencial”
+        </p>
+    </div>
+
+    <div id="combat" class="d-none">
+        <!-- TODO: Refazer sessão -->
+        <h1>7. Combate</h1>
+        em construção
+    </div>
+
+    <div id="creation" class="d-none m-3">
+        <h1>8. Criar Personagem</h1>
+        <p> A criação de personagens é um processo relativamente simples. Primeiro você decide na espécie do Pokémon -
+            pode ser qualquer Pokémon que nunca evoluiu e que não é lendário, mítico ou uma Ultra-Besta - e vai
+            determinando os detalhes mais de roleplay: nome, idade, backstory, etc.
+        </p>
+
+        <p>Pro lado mais mecânico da coisa, você precisa determinar as perícias e atributos: todas as perícias e
+            atributos começam com um d4, e você tem 10 pontos para gastar para subir os dados de perícia, e
+            10 pontos para gastar subindo os dados de atributos - gastando um ponto para subir o dado uma vez.</p>
+
+        <p>Alternativamente, você pode rolar seus atributos: role 2d4 para cada e pegue o maior valor dessa rolagem,
+            faça isso 6 vezes e depois de converter para a faixa de valores que os dados podem ter (1 é 4, 2 é 6, etc.),
+            você tem os valores de dados para distribuir como quiser. Se pegar valores assim, você pode também
+            opcionalmente diminuir um dos dados e aumentar um outro.
+        </p>
+
+        <p>Caso não queira gastar todos os pontos, os que sobrarem são convertidos em pontos de Potencial.</p>
+
+        <p> Tendo os atributos, podemos calcular os Pontos de Vida de duas maneiras: ou você rola 6 dados de Vida e soma
+            os três maiores resultados, ou você determina que os seus pontos de vida são 3 vezes o valor médio do dado
+            de
+            Vida
+            (metade do número de lados mais um).
+        </p>
+
+        <p> Por fim, é necessário determinar as habilidades do Pokémon. Todo personagem começa com
+            <strong>Auto-sabotagem</strong> mas a outra habilidade fica a sua escolha e invenção - em dúvida, converse
+            com o GM.
+        </p>
+    </div>
+
+    <div id="life" class="d-none m-3">
+        <h1>9. Recalcular Vida</h1>
+        <p>
+            Quando o seu dado de <strong>Constituição</strong> aumenta permanentemente, seus Pontos de Vida são
+            recalculados. Nesse caso você tem duas opções: ou você rola 3 dados até conseguir uma soma maior que seus
+            pontos de vida máximos atuais, ou você determina que seus pontos de vida são 3 vezes o valor médio do dado
+            de Vida novo.
+        </p>
+
+        <p>
+            Quando você evolui, você efetivamente ganha mais vida: ao invés de rolar 3 dados no processo de recálculo ou
+            multiplicar o valor médio por 3, você rola 4 (ou multiplica por 4). Se for a sua segunda vez evoluindo o
+            Pokémon, se rolam 5 dados (ou multiplica por 5).
+    </div>
+
+    <div id="item" class="d-none m-3">
+        <!-- TODO: redigir -->
+        <h1>10. Itens</h1>
+        em construção
+    </div>
+
+    <!-- Popper & Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <!-- My scripts -->
+    <script src="code/rules-drop.js"></script>
+</body>
+
+</html>
