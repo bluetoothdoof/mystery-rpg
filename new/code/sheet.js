@@ -72,50 +72,47 @@ function skillTrackerToggle() {
     calculateSkillPoints();
 }
 
-function createSFX(val) {
-    const p = document.createElement('p');
-    p.innerHTML = val ? val : '<strong contenteditable="true">Nome</strong> - <span contenteditable="true">Efeito</span>';
+function createAbility(val) {
+    let name = "Nome";
+    let effect = "Efeito";
+    if (val && val.length == 2) {
+        [name, effect] = val;
+    }
 
     const parent = document.getElementById("abilities");
 
-    let buttons = [...parent.children];
-    buttons = buttons[buttons.length - 1];
+    const outerDiv = document.createElement('div');
+    outerDiv.classList.add('d-flex', 'flex-column', 'pb-1');
+    outerDiv.innerHTML = `<div class="d-flex flex-row justify-content-between"><strong contenteditable>${name}</strong>` +
+        '<img src="assets/trash.svg" alt="ícone de deletar" height="20" width="20" onclick="deleteAbility(event)"/></div>' +
+        `<p contenteditable>${effect}</p>`;
 
-    buttons.before(p);
+    parent.appendChild(outerDiv);
 }
 
-function deleteSFX(forceDelete) {
-    const parent = document.getElementById("abilities")
+function deleteAbility(event) {
+    event.target.parentElement.parentElement.remove();
+}
 
-    const ps = [...parent.children].filter(e => e.tagName === "P");
-
-    if (ps.length > 1 || (ps.length > 0 && forceDelete)) {
-        ps[ps.length - 1].remove();
+function createCondition(val) {
+    let name = "Nome";
+    let dice = "d6";
+    if (val && val.length == 2) {
+        [name, dice] = val;
     }
+
+    let parent = document.getElementById("asset-box");
+
+    const outerDiv = document.createElement('div');
+    outerDiv.classList.add('d-flex', 'flex-row', 'justify-content-between', 'pb-1');
+    outerDiv.innerHTML = `<span><strong contenteditable="true">${name}</strong> (<span contenteditable="true">${dice}</span>)</span>` +
+        '<img src="assets/trash.svg" alt="ícone de deletar" height="20" width="20" onclick="deleteCondition(event)"/></div>';
+
+    parent.appendChild(outerDiv);
 }
 
-function createAsset(val) {
-    const p = document.createElement('p');
-    p.innerHTML = val ? val : '<strong contenteditable="true">Nome</strong> (<span contenteditable="true">d6</span>)';
-
-    let id = "asset-box";
-
-    let parent = document.getElementById(id);
-
-    let buttons = [...parent.children];
-    buttons = buttons[buttons.length - 1];
-
-    buttons.before(p);
-}
-
-function deleteAsset() {
-    let id = "asset-box";
-
-    const ps = [...document.getElementById(id).children].filter(e => e.tagName === "P");
-
-    if (ps.length > 0) {
-        ps[ps.length - 1].remove();
-    }
+function deleteCondition(event) {
+    event.target.parentElement.remove()
 }
 
 // Activating tooltips
@@ -139,10 +136,25 @@ function exportStats() {
     ctx.stats = [...document.getElementById('stat-block').children].map(e => [...e.children][1].value);
     ctx.skills = [...Array(15).keys()].map(i => document.getElementById('skill' + (i + 1) + '-inp').value);
 
-    ctx.abilities = [...document.getElementById('abilities').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
+    ctx.abilities = [...document.getElementById('abilities').children]
+        // First is default
+        .slice(1)
+        .map(elem => {
+            const [innerDiv, p] = [...elem.children];
+            const name = [...innerDiv.children][0];
+
+            return [name.innerHTML, p.innerHTML]
+        });
 
     // Assets
-    ctx.assets = [...document.getElementById('asset-box').children].filter(e => e.tagName === "P").map(e => e.innerHTML);
+    ctx.assets = [...document.getElementById('asset-box').children]
+        // First is header
+        .slice(1)
+        .map(elem => {
+            const [name, dice] = [...[...elem.children][0].children];
+
+            return [name.innerHTML, dice.innerHTML]
+        });
 
     document.getElementById('io-box').value = JSON.stringify(ctx, null, 2);
 }
@@ -171,20 +183,20 @@ function importStats() {
     });
 
     let abilities = [...document.getElementById('abilities').children];
-    for (let i = 0; i < abilities.length; ++i) {
-        deleteSFX(true);
+    for (let i = 1; i < abilities.length - 1; ++i) {
+        abilities[i].remove();
     }
 
     for (let i = 0; i < ctx.abilities.length; ++i) {
-        createSFX(ctx.abilities[i]);
+        createAbility(ctx.abilities[i]);
     }
 
     let assets = [...document.getElementById('asset-box').children];
-    for (let i = 0; i < assets.length; ++i) {
-        deleteAsset();
+    for (let i = 1; i < assets.length; ++i) {
+        assets[i].remove();
     }
 
     for (let i = 0; i < ctx.assets.length; ++i) {
-        createAsset(ctx.assets[i]);
+        createCondition(ctx.assets[i]);
     }
 }

@@ -236,15 +236,19 @@
             </div>
         </div>
         <div class="d-flex flex-column m-3 bordered">
-            <h5 class="pb-2 mb-4">Habilidades</h5>
-            <div class="d-flex flex-column pb-5" id="abilities">
-                <p><strong>Auto-sabotagem</strong> - Use um d4 invés de d8 no dado de brinde e ganhe um Ponto de
-                    Potencial.</p>
-                <div class="d-flex flex-row justify-content-between">
-                    <button type="button" class="btn btn-outline-success w-47"
-                        onclick="createSFX(); return false;">+</button>
-                    <button type=" button" class="btn btn-outline-danger w-47"
-                        onclick="deleteSFX(); return false;">-</button>
+            <div class="d-flex flex-row justify-content-between">
+                <h5>Habilidades</h5>
+
+                <button type="button" class="btn btn-outline-success"
+                    onclick="createAbility(); return false;">Adicionar</button>
+            </div>
+
+            <div class="d-flex flex-column" id="abilities">
+                <div class="d-flex flex-column pb-1">
+                    <div class="d-flex flex-row justify-content-between">
+                        <strong>Auto-sabotagem</strong>
+                    </div>
+                    <p>Use um d4 invés de d8 no dado de brinde e ganhe um Ponto de Potencial.</p>
                 </div>
             </div>
         </div>
@@ -252,12 +256,11 @@
 
     <div id="asset" class="d-none">
         <div id="asset-box" class="d-flex flex-column bordered m-3">
-            <h5 class="mb-3">Condições</h5>
-            <div class="d-flex flex-row justify-content-between">
-                <button type="button" class="btn btn-outline-success w-47"
-                    onclick="createAsset(false); return false;">Adicionar</button>
-                <button type=" button" class="btn btn-outline-danger w-47"
-                    onclick="deleteAsset(false); return false;">Remover</button>
+            <div class="d-flex flex-row justify-content-between pb-3">
+                <h5>Condições</h5>
+
+                <button type="button" class="btn btn-outline-success"
+                    onclick="createCondition(); return false;">Adicionar</button>
             </div>
         </div>
     </div>
