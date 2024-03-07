@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/sheet.css">
+
+    <title>Ficha</title>
+</head>
+
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="selectSheetTab('info'); return false;" id="info-button">
+                Personagem</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="selectSheetTab('trait'); return false;"
+                id="trait-button">Características</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="selectSheetTab('asset'); return false;"
+                id="asset-button">Condições</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="selectSheetTab('io'); return false;" id="io-button">Ler & Salvar</a>
+        </li>
+    </ul>
+
+    <div id="info" class="m-4 d-flex flex-column">
+        <div class="d-flex justify-content-between">
+            <img id="speciesImage" src="assets/error.png"
+                style="object-fit: scale-down; margin-left: 25px; max-width: 200px;">
+
+            <div class=" d-flex flex-column m-5">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon1">Nome</span>
+                    <input id="char-name" type="text" class="form-control" aria-label="Username"
+                        aria-describedby="addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon2">Espécie</span>
+                    <input type="text" class="form-control" aria-label="Username" aria-describedby="addon2"
+                        id="speciesInput" list="species">
+                    <datalist id="species">
+                    </datalist>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="addon3">Idade</span>
+                    <input id="char-age" type="text" class="form-control" aria-label="Username"
+                        aria-describedby="addon3">
+                </div>
+
+                <div id="monTypes" class="d-flex flex-row"></div>
+            </div>
+        </div>
+        <div class="mt-5 mb-3">
+            <div class="form-floating">
+                <textarea id="char-backstory" class="form-control" id="backstoryText"
+                    style="min-height: 200px"></textarea>
+                <label for="backstoryText">Backstory</label>
+            </div>
+        </div>
+    </div>
+
+    <div id="trait" class="d-none">
+        <div class="d-flex flex-row m-3 justify-content-between">
+            <div class="bordered w-47">
+                <label for="potential" class="form-label">Potencial</label>
+                <input type="number" class="form-control" id="potential" min="0" value="0">
+            </div>
+
+            <div class="bordered w-47">
+                <label for="life" class="form-label">Pontos de Vida</label>
+                <div class="input-group mb-3">
+                    <input id="curr-life" type="number" class="form-control" aria-label="Username" min="0" value="0">
+                    <span class="input-group-text">/</span>
+                    <input id="max-life" type="number" class="form-control" aria-label="Server" min="3" max="72"
+                        value="3">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column bordered m-3">
+            <div class="d-flex flex-row justify-content-between mb-4">
+                <h5 id="stat-header">Atributos</h5>
+
+                <button class="btn btn-outline-secondary" onclick="statTrackerToggle();">Tracker</button>
+            </div>
+            <div id="stat-block" class="d-flex flex-row justify-content-between">
+                <div class="w-15">
+                    <label for="con-stat" class="form-label stat-label" data-bs-toggle="tooltip"
+                        data-bs-title="Vida, defesa física, resistência a toxinas e aos elementos">Constituição</label>
+                    <input type="number" class="form-control" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="pow-stat" class="form-label stat-label" data-bs-toggle="tooltip"
+                        data-bs-title="Proezas e ataques físicos">Ataque</label>
+                    <input type="number" class="form-control" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="pro-stat" class="form-label stat-label" data-bs-toggle="tooltip"
+                        data-bs-title="Mirar, atos de coordenação motora fina e movimento em geral">Destreza</label>
+                    <input type="number" class="form-control" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="soc-stat" class="form-label stat-label" data-bs-toggle="tooltip"
+                        data-bs-title="Testes de conhecimento, memória e ataques especiais">Inteligência</label>
+                    <input type=" number" class="form-control" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="dex-stat" class="form-label stat-label" data-bs-toggle="tooltip"
+                        data-bs-title="Testes de percepção, resistência mental e defesa especial">Sabedoria</label>
+                    <input type="number" class="form-control" min="4" max="12" step="2" value="4">
+                </div>
+                <div class="w-15">
+                    <label for="dex-stat" class="form-label stat-label" data-bs-toggle="tooltip"
+                        data-bs-title="Testes sociais">Carisma</label>
+                    <input type="number" class="form-control" min="4" max="12" step="2" value="4">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between m-3">
+            <div class="d-flex flex-column w-100 bordered">
+                <div class="d-flex flex-row justify-content-between mb-4">
+                    <h5 id="skill-header">Perícias</h5>
+
+                    <button class="btn btn-outline-secondary" onclick="skillTrackerToggle();">Tracker</button>
+                </div>
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="d-flex flex-column w-30">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill1" data-bs-toggle="tooltip"
+                                data-bs-title="Criar, monstar e construir coisas">Criar</span>
+                            <input id="skill1-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill2" data-bs-toggle="tooltip"
+                                data-bs-title="Luta corpo-a-corpo, maestria com armas brancas e de impacto">Lutar</span>
+                            <input id="skill2-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill3" data-bs-toggle="tooltip"
+                                data-bs-title="Consertar ou reparar objetos">Consertar</span>
+                            <input id="skill3-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill3">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill4" data-bs-toggle="tooltip"
+                                data-bs-title="Se concentrar ou focar em algo ou alguém específico, estudar">Focar</span>
+                            <input id="skill4-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill4">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill5" data-bs-toggle="tooltip"
+                                data-bs-title="Fazer alguém fazer, pensar ou agir como você quer">Influenciar</span>
+                            <input id="skill5-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill5">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column w-30">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill6" data-bs-toggle="tooltip"
+                                data-bs-title="Testes de conhecimento geral">Saber</span>
+                            <input id="skill6-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill6">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill7" data-bs-toggle="tooltip"
+                                data-bs-title="Trabalho manual em geral: levantar, carregar, empurrar, cavar, etc.">Forçar</span>
+                            <input id="skill7-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill7">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill8" data-bs-toggle="tooltip"
+                                data-bs-title="Correr, nadar, voar, acrobacias, etc.">Mover</span>
+                            <input id="skill8-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill8">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill9" data-bs-toggle="tooltip"
+                                data-bs-title="Observar e usar seus sentidos">Notar</span>
+                            <input id="skill9-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill9">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill10" data-bs-toggle="tooltip"
+                                data-bs-title="Atuar, cantar, tocar um instrumento, dar um show">Estrelar</span>
+                            <input id="skill10-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill10">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column w-30">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill11" data-bs-toggle="tooltip"
+                                data-bs-title="Jogar objetos, ataques à distância e/ou usar armas de tiraria">Atirar</span>
+                            <input id="skill11-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill11">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill12" data-bs-toggle="tooltip"
+                                data-bs-title="Se desfarçar, se esconder, passar sem ser percebido">Ocultar</span>
+                            <input id="skill12-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill12">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill13" data-bs-toggle="tooltip"
+                                data-bs-title="Reconhecer e achar comida na selva, habilidades de sobrevivência em geral">Sobreviver</span>
+                            <input id="skill13-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill13">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill14" data-bs-toggle="tooltip"
+                                data-bs-title="Primeiros socorros, curar, tratar machucados e também aconselhar">Tratar</span>
+                            <input id="skill14-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill14">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="skill15" data-bs-toggle="tooltip"
+                                data-bs-title="Enganar alguém, bater carteiras, trapacear em algo">Trapacear</span>
+                            <input id="skill15-inp" type="number" class="form-control" min="4" max="12" step="2"
+                                value="4" aria-label="Username" aria-describedby="skill15">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column m-3 bordered">
+            <h5 class="pb-2 mb-4">Habilidades</h5>
+            <div class="d-flex flex-column pb-5" id="abilities">
+                <p><strong>Auto-sabotagem</strong> - Use um d4 invés de d8 no dado de brinde e ganhe um Ponto de
+                    Potencial.</p>
+                <div class="d-flex flex-row justify-content-between">
+                    <button type="button" class="btn btn-outline-success w-47"
+                        onclick="createSFX(); return false;">+</button>
+                    <button type=" button" class="btn btn-outline-danger w-47"
+                        onclick="deleteSFX(); return false;">-</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="asset" class="d-none">
+        <div id="asset-box" class="d-flex flex-column bordered m-3">
+            <h5 class="mb-3">Condições</h5>
+            <div class="d-flex flex-row justify-content-between">
+                <button type="button" class="btn btn-outline-success w-47"
+                    onclick="createAsset(false); return false;">Adicionar</button>
+                <button type=" button" class="btn btn-outline-danger w-47"
+                    onclick="deleteAsset(false); return false;">Remover</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="io" class="d-none">
+        <div class="d-flex flex-row justify-content-between m-3">
+            <button type="button" class="btn btn-outline-danger w-47"
+                onclick="importStats(); return false;">Importar</button>
+            <button type=" button" class="btn btn-outline-success w-47"
+                onclick="exportStats(); return false;">Exportar</button>
+        </div>
+        <textarea class="m-3" id="io-box" cols="58" rows="15"></textarea>
+    </div>
+
+    <!-- Popper & Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <!-- My scripts -->
+    <script src="code/sheet.js"></script>
+</body>
+
+</html>

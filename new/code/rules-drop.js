@@ -1,5 +1,5 @@
 function selectRulesTab(name) {
-    tabs = ['test', 'stat', 'condition', 'hitch', 'potential', 'skill', 'combat', 'creation', 'life', 'item'];
+    const tabs = ['test', 'stat', 'condition', 'hitch', 'potential', 'skill', 'combat', 'creation', 'life', 'item'];
 
     for (const tab of tabs) {
         if (tab === name) {
