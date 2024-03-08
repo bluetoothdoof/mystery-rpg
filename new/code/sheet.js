@@ -117,7 +117,7 @@ function selectSheetTab(name) {
 function calculateStatPoints() {
     const stats = [...document.getElementById('stat-block').children].map(e => [...e.children][1]);
 
-    let points = 10;
+    let points = 12;
     for (const stat of stats) {
         const value = +stat.value;
         points -= Math.floor((value - 4) / 2);
@@ -125,7 +125,7 @@ function calculateStatPoints() {
 
     let msg = "";
     if (isStatTracking) {
-        msg = ` (${points}/10)`;
+        msg = ` (${points}/12)`;
         if (points < 0) {
             msg = '<span style="color: rgb(197, 8, 83)">' + msg + '</span>';
         }
