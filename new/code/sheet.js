@@ -1,3 +1,102 @@
+window.onload = () => {
+    const speciesDatalist = document.getElementById('species');
+
+    for (const mon of dex) {
+        const { name } = mon;
+
+        const opt = document.createElement('option');
+        opt.value = name;
+
+        speciesDatalist.appendChild(opt);
+    }
+}
+
+function updateType(types) {
+    const typeBox = document.getElementById('monTypes');
+    for (const child of [...typeBox.children]) {
+        child.remove();
+    }
+
+    for (const type of types) {
+        const div = document.createElement('div');
+
+        const color = ({
+            normal: "#A8A878", fighting: "#C03028", flying: "#A890F0", poison: "#A040A0",
+            ground: "#E0C068", rock: "#B8A038", bug: "#A8B820", ghost: "#705898",
+            steel: "#B8B8D0", fire: "#F08030", water: "#6890F0", grass: "#78C850",
+            electric: "#F8D030", psychic: "#F85888", ice: "#98D8D8", dragon: "#7038F8",
+            dark: "#705848", fairy: "#EE99AC"
+        })[type.toLowerCase()];
+
+        const style = "width: 100%; color: #FFF;" +
+            'text-align: center; font-family: "Space Mono", monospace;' +
+            `background-color: ${color};` +
+            "border: 1px solid #222;";
+
+        div.style = style;
+        div.innerHTML = type.toUpperCase();
+
+        typeBox.appendChild(div);
+    }
+}
+
+function getTreatedName(rawName) {
+    let name = rawName.replace(/(\.|:)/g, '-').replace(/(\s+|')/g, '').toLowerCase();
+
+    const suffixes = ['alolan', 'galarian', 'hisuian', 'paldean'];
+    for (const suffix of suffixes) {
+        if (name.startsWith(suffix)) {
+            return name.slice(suffix.length) + '-' + suffix;
+        }
+    }
+
+    const exact = {
+        tauroscombat: 'tauros-paldean', taurosblaze: 'tauros-blaze',
+        taurosaqua: 'tauros-aqua', mimejr: 'mime-jr',
+        oricoriopa: 'oriocorio-pau', toxtricitya: 'toxtricity-amped',
+        toxtricityl: 'toxtricity-low-key', calyrexi: 'calyrex-ice-rider',
+        calyrexs: 'calyrex-shadow-rider', urshifus: 'urshifu-single-strike',
+        urshifur: 'urshifu-rapid-strike', nidoranf: 'nidoran-f', nidoranm: 'nidoran-m',
+        sandysh: 'sandy-shocks'
+    };
+    for (const [key, value] of Object.entries(exact)) {
+        if (name.startsWith(key)) {
+            return value;
+        }
+    }
+
+    const prefixes = [
+        'oricorio', 'lycanroc', 'tapu', 'indeedee', 'basculegion',
+        'meowstic', 'oinkologne', 'tatsugiri', 'great', 'scream',
+        'brute', 'flutter', 'slither', 'iron', 'gimmighoul', 'roaring',
+        'walking', 'gouging', 'raging'];
+    for (const prefix of prefixes) {
+        if (name.startsWith(prefix)) {
+            return prefix + '-' + name.slice(prefix.length);
+        }
+    }
+
+    return name;
+}
+
+function updateImageTypeInfo(name) {
+    const data = dex.filter(p => p.name.toLowerCase() === name.toLowerCase());
+    if (data.length == 0) {
+        return;
+    }
+
+    updateType(data[0].types);
+
+    const treatedName = getTreatedName(name);
+    const imgSrc = `https://img.pokemondb.net/artwork/large/${treatedName}.jpg`;
+    document.getElementById('speciesImage').src = imgSrc;
+}
+
+document.getElementById('speciesInput').addEventListener('input', event => {
+    const name = event.target.value;
+    updateImageTypeInfo(name);
+})
+
 var isSkillTracking = false;
 var isStatTracking = false;
 
@@ -167,6 +266,8 @@ function importStats() {
     document.getElementById('char-age').value = ctx.age
     document.getElementById('char-backstory').value = ctx.backstory;
 
+    updateImageTypeInfo(ctx.species);
+
     // Traits
     document.getElementById('potential').value = ctx.potential;
 
@@ -200,3 +301,5 @@ function importStats() {
         createCondition(ctx.assets[i]);
     }
 }
+
+// Update image
