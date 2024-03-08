@@ -28,6 +28,8 @@
             </li>
             <li><a class="dropdown-item" href="#" onclick="selectRulesTab('skill'); return false;">Habilidades</a></li>
             <li><a class="dropdown-item" href="#" onclick="selectRulesTab('combat'); return false;">Combate</a></li>
+            <li><a class="dropdown-item" href="#" onclick="selectRulesTab('special-condition'); return false;">Condições
+                    Especiais</a></li>
             <li><a class="dropdown-item" href="#" onclick="selectRulesTab('creation'); return false;">Criar
                     Personagem</a></li>
             <li><a class="dropdown-item" href="#" onclick="selectRulesTab('life'); return false;">Recalcular Vida</a>
@@ -249,14 +251,89 @@
         </p>
     </div>
 
-    <div id="combat" class="d-none">
-        <!-- TODO: Refazer sessão -->
+    <div id="combat" class="d-none m-3">
         <h1>7. Combate</h1>
-        em construção
+
+        <h2>7.1 Ordem de batalha</h2>
+        <p>Combate é feito em turnos, e para decidir a ordem de batalha, se somam o valor de um dado de
+            <strong>Destreza</strong>, de um dado de <strong>Mover</strong>, assim como os valores de quaisquer
+            condições que ajudariam você a agir e subtraindo os valores de condições que atrapalhariam você a agir.
+        </p>
+
+        <p>Uma vez que tenham-se os valores, os personagens atuam em ordem decrescente dos valores.</p>
+
+        <p>Dito isso, um ataque surpresa que vai começar o combate sempre vai primeiro, independente do valor de
+            iniciativa rolado pelo personagem.</p>
+
+        <h2>7.2 Turnos e ações</h2>
+        <p>Quando é a vez de um personagem fazer alguma coisa, esse personagem vai tomar a <strong>ação</strong> dele.
+            As ações básicas que qualquer personagem pode fazer são:</p>
+        <ul>
+            <li>Usar um golpe</li>
+            <li>Defender algo ou alguém</li>
+            <li>Usar um item consumível</li>
+        </ul>
+
+        <p>Quando o personagem de maior iniciativa começar o turno dele, dizemos que estamos em um
+            <strong>turno</strong> novo.
+        </p>
+
+        <h2>7.3 Golpes</h2>
+        <p>Todo personagem começa com 4 possíveis golpes, podendo trocar seus golpes através do uso de
+            <strong>Potencial</strong>.
+        </p>
+
+        <p>Golpes tem três funções principais: causar dano, dar buff em si mesmo ou nos aliados, e dar debuff nos
+            enemigos.</p>
+
+        <p>Como se rola pra se determinar se o golpe acerta ou não, assim como possíveis efeitos extras, está melhor
+            descrito na <a href="moves.html">lista de golpes</a>. De maneira geral, funcionam de maneira parecida com
+            testes: o atacante rola 3 dados e decide quais vão ser o resultado e quais vão ser o dado de efeito. O alvo
+            rola 3 dados e escolhe seu resultado - se o valor do atacante for maior, o ataque funciona e dá dano.</p>
+
+        <h2>7.4 Defender</h2>
+        <p>Ao defender algo ou alguém, caso algum outro personagem ataque ou tente interagir com aquele alvo até a sua
+            próxima ação, você pode aumentar o dado de brinde na hora de resistir ao ataque.</p>
+
+        <p>Se o valor do atacante for maior que do defensor em 5 ou mais, é um ataque crítico. Se o valor da defesa for
+            maior que do atacante em 5 ou mais é uma defesa crítica e o personagem pode contra-atacar se quiser.</p>
+
+        <h2>7.5 Dano</h2>
+        <p>Caso um golpe acerte o alvo, o dano vai ser determinado através da rolagem de um dado. Para se determinar o
+            número de lados do dado, se usa o seguinte cálculo:</p>
+
+        <p style="margin: 0 auto; width: 80%" class="pb-2"><strong>Lados = Base + Mod. de atributos + Mod. de
+                efeito</strong></p>
+
+        <p>Base é o número de lados do dado de dano base do golpe. Modificador de efeito se refere ao dado de efeito do
+            golpe: um d4 é um modificador de -2, um d6 tem -1, e assim por diante até um d12 que tem valor
+            de +2.</p>
+
+        <p>Por fim, o modificador de atributos tem a ver com o dado do atributo usado para fazer o ataque, e
+            <strong>Constituição</strong> ou <strong>Sabedoria</strong> do alvo, dependendo se o golpe for físico ou
+            especial.
+        </p>
+
+        <p>Ataques neutros só rolam o dado, ataques super efetivos adicionam um dado a mais pra cada efetividade e pegam
+            o maior dos valores. De maneira análoga, para cada resistência se adiciona mais um dado e pega o menor dos
+            valores.</p>
+
+        <p>Se o ataque for crítico, não se rola os dados - simplesmente se dá o maior valor possível do dado.</p>
+    </div>
+
+    <div id="special-condition" class="d-none m-3">
+        <h1>8. Condições Especiais</h1>
+        <h2>8.1. Variações de Atributo</h2>
+
+        <h2>8.2. Status Persistentes</h2>
+
+        <h2>8.3. Status Voláteis</h2>
+
+        <h2>8.4. Condições de Terreno</h2>
     </div>
 
     <div id="creation" class="d-none m-3">
-        <h1>8. Criar Personagem</h1>
+        <h1>9. Criar Personagem</h1>
         <p> A criação de personagens é um processo relativamente simples. Primeiro você decide na espécie do Pokémon -
             pode ser qualquer Pokémon que nunca evoluiu e que não é lendário, mítico ou uma Ultra-Besta - e vai
             determinando os detalhes mais de roleplay: nome, idade, backstory, etc.
@@ -264,22 +341,18 @@
 
         <p>Pro lado mais mecânico da coisa, você precisa determinar as perícias e atributos: todas as perícias e
             atributos começam com um d4, e você tem 10 pontos para gastar para subir os dados de perícia, e
-            10 pontos para gastar subindo os dados de atributos - gastando um ponto para subir o dado uma vez.</p>
-
-        <p>Alternativamente, você pode rolar seus atributos: role 2d4 para cada e pegue o maior valor dessa rolagem,
-            faça isso 6 vezes e depois de converter para a faixa de valores que os dados podem ter (1 é 4, 2 é 6, etc.),
-            você tem os valores de dados para distribuir como quiser. Se pegar valores assim, você pode também
-            opcionalmente diminuir um dos dados e aumentar um outro.
-        </p>
+            12 pontos para gastar subindo os dados de atributos - gastando um ponto para subir o dado uma vez.</p>
 
         <p>Caso não queira gastar todos os pontos, os que sobrarem são convertidos em pontos de Potencial.</p>
 
-        <p> Tendo os atributos, podemos calcular os Pontos de Vida de duas maneiras: ou você rola 6 dados de Vida e soma
-            os três maiores resultados, ou você determina que os seus pontos de vida são 3 vezes o valor médio do dado
-            de
-            Vida
-            (metade do número de lados mais um).
+        <p> Você começa com 3 dados de Vida (vindo do seu atributo de <strong>Constituição</strong>) e um dado de
+            espécie (a décima parte do <a
+                href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(Generation_IX)">HP de
+                base da sua espécie</a>, arredondado para par).
         </p>
+
+        <p>Para determinar seus pontos de vida, ou você soma os valores medianos de todos esses dados (um mais a metade
+            do número de lados), ou rola eles e soma os valores.</p>
 
         <p> Por fim, é necessário determinar as habilidades do Pokémon. Todo personagem começa com
             <strong>Auto-sabotagem</strong> mas a outra habilidade fica a sua escolha e invenção - em dúvida, converse
@@ -288,23 +361,27 @@
     </div>
 
     <div id="life" class="d-none m-3">
-        <h1>9. Recalcular Vida</h1>
-        <p>
-            Quando o seu dado de <strong>Constituição</strong> aumenta permanentemente, seus Pontos de Vida são
-            recalculados. Nesse caso você tem duas opções: ou você rola 3 dados até conseguir uma soma maior que seus
-            pontos de vida máximos atuais, ou você determina que seus pontos de vida são 3 vezes o valor médio do dado
-            de Vida novo.
-        </p>
+        <h1>10. Recalcular Vida</h1>
 
-        <p>
-            Quando você evolui, você efetivamente ganha mais vida: ao invés de rolar 3 dados no processo de recálculo ou
-            multiplicar o valor médio por 3, você rola 4 (ou multiplica por 4). Se for a sua segunda vez evoluindo o
-            Pokémon, se rolam 5 dados (ou multiplica por 5).
+        <p>De maneira geral, sempre que precisar recalcular seus pontos de vida, rolar todos os dados até conseguir algo
+            maior do que você já tem é sempre uma opção. Os itens listados abaixo são outras opções de cálculo.</p>
+
+        <h2>9.1 Aumentando o dado de Constituição</h2>
+        <p>Você pode adicionar 1 ponto de vida máxima para cada dado de vida que você tem.</p>
+
+        <h2>9.2 Comprando mais dados de Vida</h2>
+        <p>Você pode adicionar o valor mediano do seu dado de <strong>Constituição</strong>.</p>
+
+        <h2>9.3 Evolução</h2>
+        <p>Quando você evolui, você ganha um dado de vida e um dado de espécie (além do dado de espécie mudar em si).
+            Você pode adicionar o valor mediano do seu dado de <strong>Constituição</strong>, o valor mediano do seu
+            dado de espécie novo, e a diferença entre o valor mediano do dado de espécie novo pro velho.</p>
+
     </div>
 
     <div id="item" class="d-none m-3">
         <!-- TODO: redigir -->
-        <h1>10. Itens</h1>
+        <h1>11. Itens</h1>
         em construção
     </div>
 
