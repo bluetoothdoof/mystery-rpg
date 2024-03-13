@@ -40,174 +40,86 @@ const moves = [
     { name: "Water Gun", type: "Water", dice: ["Int", "Atirar"], base: 4 },
     { name: "Wing Attack", type: "Flying", dice: ["Atk", "Lutar"], base: 6 },
     { name: "X-Scissor", type: "Bug", dice: ["Atk", "Lutar"], base: 8 },
-    {
-        name: "Dynamic Punch", type: "Fighting", dice: ["Atk", "Lutar"], base: 10,
-        effect: "Caso acerte, o defensor faz um teste de Sabedoria." +
-            "Se o defensor passar ele toma metade do dano, caso contrário," +
-            " ele toma o dano inteiro e ganha Confusão (dado de efeito)."
-    },
-    {
-        name: "Sonic Boom", type: "Normal", dice: ["Int", "Estrelar"], base: 0, notes: ["sound"],
-        effect: "Esse ataque sempre dá 2 de dano, podendo dar mais caso modificadores criem um dado positivo."
-    },
-    {
-        name: "Dragon Rage", type: "Dragon", dice: ["Atk", "Forçar"], base: 0,
-        effect: "Esse ataque sempre dá 4 de dano, podendo dar mais caso modificadores criem um dado positivo."
-    },
-    {
-        name: "Sucker Punch", type: "Dark", dice: ["Dex", "Trapacear"], base: 7,
-        effect: "O atacante fica esperando até sua próxima ação." +
-            "Se o alvo não atacar o atacante ou um aliado até então, o ataque falha." +
-            "Se o atacante tomar dano antes do alvo atacar alguém, precisa fazer um teste de Constituição (DC 9) para continuar com o ataque."
-    },
+    { name: "Dynamic Punch", type: "Fighting", dice: ["Atk", "Lutar"], base: 10, notes: ['con100'] },
+    { name: "Sonic Boom", type: "Normal", dice: ["Int", "Estrelar"], base: 0, notes: ["sound", 'fixed20'] },
+    { name: "Dragon Rage", type: "Dragon", dice: ["Atk", "Forçar"], base: 0, notes: ['fixed40'] },
+    { name: "Sucker Punch", type: "Dark", dice: ["Dex", "Trapacear"], base: 7, notes: ['sucker-punch'] },
     { name: "Frost Breath", type: "Ice", dice: ["Int", "Criar"], base: 6, notes: ["sure-crit"] },
     { name: "Storm Throw", type: "Fighting", dice: ["Atk", "Forçar"], base: 6, notes: ["sure-crit"] },
     { name: "Wicked Blow", type: "Dark", dice: ["Atk", "Trapacear"], base: 8, notes: ["sure-crit"] },
-    { name: "Vital Throw", type: "Fighting", dice: ["Atk", "Forçar"], base: 7, notes: ["sure-hit", "low-priority"] },
+    { name: "Vital Throw", type: "Fighting", dice: ["Atk", "Forçar"], base: 7, notes: ["swift", "low-priority"] },
     { name: "Breaking Swipe", type: "Dragon", dice: ["Atk", "Lutar"], base: 6, notes: ["low-atk"] },
-    {
-        name: "Focus Punch", type: "Fighting", dice: ["Atk", "Focar"], base: 15,
-        effect: "O atacante fica esperando até sua próxima ação." +
-            "Se não tiver tomado dano, ou tiver tomado dano e passado em um teste de Sabedoria (DC 9), ele dá dano " +
-            "sem que o alvo role pra defender."
-    },
-    {
-        name: "Echoed Voice", type: "Normal", dice: ["Int", "Estrelar"], base: 4, notes: ["sound"],
-        effect: "Cada vez que o usuário ou um de seus aliados usa o ataque consecutivamente, o dado de base sobe em 2 lados."
-    },
-
+    { name: "Focus Punch", type: "Fighting", base: 15, notes: ['concentration'] },
+    { name: "Echoed Voice", type: "Normal", dice: ["Int", "Estrelar"], base: 4, notes: ["sound", 'round'] },
     { name: "Sky Drop", type: "Flying", dice: ["Atk", "Forçar"], base: 6, notes: ['airborne', 'airborne-enemy'] },
     { name: "Feint", type: "Normal", dice: ["Dex", "Trapacear"], base: 3, notes: ['break-protect'] },
-    {
-        name: "Burning Jealousy", type: "Fire", dice: ["Int", "Focar"], base: 7,
-        effect: "Caso o alvo tenha ganhado uma condição positiva naquele turno, " +
-            "ele faz um teste de Constituição (DC 9) e em falha, ganha a condição Queimadura (dado de efeito)"
-    },
-    {
-        name: "Sky Uppercut", type: "Fighting", dice: ["Atk", "Lutar"], base: 8, notes: ['hit-fly'],
-        effect: "Ao rolar esse ataque, aumente o dado de brinde se o alvo estiver aéreo."
-    },
-    {
-        name: "Last Resort", type: "Normal", dice: ["Atk", "Forçar"], base: 14,
-        effect: "Esse ataque só pode ser usado se o usuário tiver menos de 20% de vida."
-    },
+    { name: "Burning Jealousy", type: "Fire", dice: ["Int", "Focar"], base: 7, notes: ['burning-jealousy'] },
+    { name: "Sky Uppercut", type: "Fighting", dice: ["Atk", "Lutar"], base: 8, notes: ['hit-fly'] },
+    { name: "Last Resort", type: "Normal", dice: ["Atk", "Forçar"], base: 14, notes: ['last-resort'] },
     { name: "Judgment", type: "Normal", dice: ["Int", "Influenciar"], base: 10, notes: ['always-stab'] },
     { name: "Revelation Dance", type: "Normal", dice: ["Dex", "Estrelar"], base: 9, notes: ['always-stab'] },
     { name: "Solar Beam", type: "Grass", dice: ["Int", "Criar"], base: 12, notes: ['charge', 'solar-beam'] },
     { name: "Razor Wind", type: "Normal", dice: ["Int", "Criar"], base: 8, notes: ['charge'] },
-    {
-        name: "Pay Day", type: "Normal", dice: ["Int", "Criar"], base: 4,
-        effect: "Aumenta o loot encontrado depois da batalha."
-    },
+    { name: "Pay Day", type: "Normal", dice: ["Int", "Criar"], base: 4, notes: ['pay-day'] },
     { name: "Psyshock", type: "Psychic", dice: ["Int", "Focar"], base: 8, notes: ['psyshock'] },
     { name: "Psystrike", type: "Psychic", dice: ["Int", "Focar"], base: 10, notes: ['psyshock'] },
     { name: "Secret Sword", type: "Fighting", dice: ["Int", "Focar"], base: 8, notes: ['psyshock'] },
     { name: "Crush Grip", type: "Normal", dice: ["Atk", "Forçar"], base: 12, notes: ['target-eruption'] },
     { name: "Wring Out", type: "Normal", dice: ["Int", "Forçar"], base: 12, notes: ['target-eruption'] },
-    {
-        name: "Frustration", type: "Normal", dice: ["Atk", "Forçar"], base: NaN,
-        effect: "O dano base do ataque é 10 - Pontos de Potencial do usuário, com valor mínimo de 1"
-    },
-    {
-        name: "Return", type: "Normal", dice: ["Atk", "Forçar"], base: NaN,
-        effect: "O dano base do ataque é a quantidade de Pontos de Potencial do usuário, com valor máximo de 10"
-    },
+    { name: "Frustration", type: "Normal", dice: ["Atk", "Forçar"], base: NaN, notes: ['potential-neg'] },
+    { name: "Return", type: "Normal", dice: ["Atk", "Forçar"], base: NaN, notes: ['potential-pos'] },
     { name: "Eruption", type: "Fire", dice: ["Int", "Criar"], base: 15, notes: ['eruption'] },
     { name: "Water Spout", type: "Water", dice: ["Int", "Criar"], base: 15, notes: ['eruption'] },
     { name: "Flail", type: "Normal", dice: ["Atk", "Forçar"], base: 2, notes: ['flail'] },
     { name: "Reversal", type: "Fighting", dice: ["Atk", "Lutar"], base: 2, notes: ["flail"] },
-    {
-        name: "Foul Play", type: "Dark", dice: ["Atk", "Trapacear"], base: 9,
-        effect: "Invés de usar o Ataque do atacante para rolar se o ataque funciona e qual é o dano, use o Ataque do alvo."
-    },
+    { name: "Foul Play", type: "Dark", dice: ["Atk", "Trapacear"], base: 9, notes: ['foul-play'] },
     { name: "Light of Ruin", type: "Fairy", dice: ["Int", "Criar"], base: 14, notes: ['recoil2', 'light'] },
     { name: "Submission", type: "Fighting", dice: ["Atk", "Forçar"], base: 8, notes: ['recoil4'] },
     { name: "Take Down", type: "Normal", dice: ["Atk", "Forçar"], base: 9, notes: ['recoil4'] },
     { name: "Struggle", type: "Normal", dice: ["Atk", "Forçar"], base: 5, notes: ['recoil4'] },
-    {
-        name: "Counter", type: "Fighting", dice: [], base: NaN,
-        effect: "O usuário espera até sua próxima ação, onde retorna o dobro de todo dano causado por ataques físicos."
-    },
-    {
-        name: "Mirror Coat", type: "Psychic", dice: [], base: NaN,
-        effect: "O usuário espera até sua próxima ação, onde retorna o dobro de todo dano causado por ataques especiais."
-    },
+    { name: "Counter", type: "Fighting", dice: [], base: NaN, notes: ['bide-phys'] },
+    { name: "Mirror Coat", type: "Psychic", dice: [], base: NaN, notes: ['bide-spec'] },
     { name: "Metal Burst", type: "Steel", dice: [], base: NaN, notes: ['metal-burst'] },
     { name: "High Jump Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 13, notes: ["crash"] },
     { name: "Jump Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 10, notes: ["crash"] },
-    {
-        name: "Spit Up", type: "Normal", dice: ["Dex", "Atirar"], base: NaN, notes: ["crash"],
-        effect: "O dado de base é duas vezes o dado da condição Stockpile"
-    },
+    { name: "Spit Up", type: "Normal", dice: ["Dex", "Atirar"], base: NaN, notes: ["spit-up"] },
     { name: "Grass Knot", type: "Grass", dice: ["Int", "Trapacear"], base: NaN, notes: ["weight"] },
     { name: "Low Kick", type: "Fighting", dice: ["Atk", "Trapacear"], base: NaN, notes: ["weight"] },
     { name: "Gyro Ball", type: "Steel", dice: ["Dex", "Mover"], base: NaN, notes: ['gyro-ball'] },
-    {
-        name: "Bide", type: "Normal", dice: [], base: NaN,
-        effect: "O usuário espera por duas ações, onde retorna o dobro de todo dano causado."
-    },
+    { name: "Bide", type: "Normal", dice: [], base: NaN, notes: ['bide'] },
     { name: "Nature's Madness", type: "Fairy", dice: ["Int", "Focar"], base: NaN, notes: ['half-dmg'] },
     { name: "Night Shade", type: "Ghost", dice: ["Cha", "Trapacear"], base: NaN, notes: ['night-shade'] },
     { name: "Seismic Toss", type: "Fighting", dice: ["Atk", "Lutar"], base: NaN, notes: ['night-shade'] },
-    {
-        name: "Dragon Darts", type: "Dragon", dice: ["Dex", "Atirar"], base: 5,
-        effect: "O usuário usa esse ataque duas vezes no mesmo turno, podendo mudar de alvo, caso queira."
-    },
+    { name: "Dragon Darts", type: "Dragon", dice: ["Dex", "Atirar"], base: 5, notes: ['two-targets'] },
     { name: "Doom Desire", type: "Steel", dice: ["Wis", "Notar"], base: 14, notes: ['future'] },
     { name: "Future Sight", type: "Psychic", dice: ["Wis", "Notar"], base: 12, notes: ['future'] },
-    {
-        name: "Endeavor", type: "Normal", dice: ["Atk", "Sobreviver"], base: NaN,
-        effect: "O dado base de dano é a diferença entre a vida do alvo e do atacante, menos um. "
-    },
+    { name: "Endeavor", type: "Normal", dice: ["Atk", "Sobreviver"], base: NaN, notes: ['endeavor'] },
     { name: "Earthquake", type: "Ground", dice: ["Atk", "Forçar"], base: 10, notes: ['hit-dig'] },
     { name: "Gust", type: "Flying", dice: ["Int", "Forçar"], base: 4, notes: ['hit-fly'] },
-    {
-        name: "Venoshock", type: "Poison", dice: ["Int", "Criar"], base: 6,
-        effect: "O dado base de dano vira 13 se o alvo tiver a condição Veneno"
-    },
+    { name: "Venoshock", type: "Poison", dice: ["Int", "Criar"], base: 6, notes: 'venoshock' },
     { name: "Grass Pledge", type: "Grass", dice: ["Int", "Criar"], base: 8, notes: ['pledge'] },
     { name: "Fire Pledge", type: "Fire", dice: ["Int", "Criar"], base: 8, notes: ['pledge'] },
     { name: "Water Pledge", type: "Water", dice: ["Int", "Criar"], base: 8, notes: ['pledge'] },
-    {
-        name: "Photon Geyser", type: "Psychic", dice: ["Int", "Criar"], base: 10, notes: ['light', 'ignore-ability'],
-        effect: "O alvo usa o menor atributo entre Constituição e Sabedoria para se defender."
-    },
+    { name: "Photon Geyser", type: "Psychic", dice: ["Int", "Criar"], base: 10, notes: ['light', 'ignore-abilities', 'weakest-def'] },
     { name: 'Magnitude', type: "Ground", dice: ['Atk', 'Forçar'], base: NaN, notes: ['hit-dig', 'psybeam'] },
     { name: 'Mind Blown', type: 'Fire', dice: ['Int', 'Focar'], base: 15, notes: ['recoil2'] },
-    { name: "Behemoth Bash", type: "Steel", dice: ['Atk', 'Lutar'], base: 10, note: ['dynamax'] },
-    { name: "Behemoth Blade", type: "Steel", dice: ['Atk', 'Lutar'], base: 10, note: ['dynamax'] },
-    { name: "Dynamax Cannon", type: "Dragon", dice: ['Int', 'Atirar'], base: 10, note: ['dynamax'] },
-    { name: "Psychic Fangs", type: "Psychic", dice: ['Atk', "Lutar"], base: 8, note: ['brick-break'] },
-    { name: "Phantom Force", type: "Ghost", dice: ['Atk', "Lutar"], base: 9, note: ['break-protect', 'charge-inv'] },
-    { name: "Shadow Force", type: "Ghost", dice: ['Atk', "Lutar"], base: 12, note: ['break-protect', 'charge-inv'] },
-    {
-        name: "Flying Press", type: "Fighting", dice: ['Dex', "Lutar"], base: 4,
-        effect: "O ataque rola dano Lutador, e caso o alvo não seja imune, em seguida rola dano Lutador. " +
-            "O atacante escolhe qual dado tem os modificadores."
-    },
+    { name: "Behemoth Bash", type: "Steel", dice: ['Atk', 'Lutar'], base: 10, notes: ['dynamax'] },
+    { name: "Behemoth Blade", type: "Steel", dice: ['Atk', 'Lutar'], base: 10, notes: ['dynamax'] },
+    { name: "Dynamax Cannon", type: "Dragon", dice: ['Int', 'Atirar'], base: 10, notes: ['dynamax'] },
+    { name: "Psychic Fangs", type: "Psychic", dice: ['Atk', "Lutar"], base: 8, notes: ['brick-break'] },
+    { name: "Phantom Force", type: "Ghost", dice: ['Atk', "Lutar"], base: 9, notes: ['break-protect', 'charge-inv'] },
+    { name: "Shadow Force", type: "Ghost", dice: ['Atk', "Lutar"], base: 12, notes: ['break-protect', 'charge-inv'] },
+    { name: "Flying Press", type: "Fighting", dice: ['Dex', "Lutar"], base: 4, notes: ['flying-press'] },
     { name: "Surf", type: "Water", dice: ["Dex", "Criar"], base: 9, notes: ['hit-dive'] },
     { name: "Fury Cutter", type: "Bug", dice: ["Atk", "Forçar"], base: 4, notes: ['rollout'] },
-    {
-        name: "Beat Up", type: "Dark", dice: ["Atk", "Forçar"], base: 3,
-        effect: "Adicione os modificadores de ataque de todos os seus aliados ao dado base também."
-    },
+    { name: "Beat Up", type: "Dark", dice: ["Atk", "Forçar"], base: 3, notes: ['beat-up'] },
     { name: "Bug Bite", type: "Bug", dice: ["Atk", "Lutar"], base: 6, notes: ['bug-bite'] },
     { name: "Pluck", type: "Flying", dice: ["Atk", "Lutar"], base: 6, notes: ['bug-bite'] },
-    {
-        name: "Poltergeist", type: "Ghost", dice: ["Int", "Forçar"], base: 6,
-        effect: "Dá o dobro de dano se o alvo tiver um item."
-    },
-    {
-        name: "Plasma Fists", type: "Electric", dice: ["Atk", "Lutar"], base: 10,
-        effect: "Até o começo do próximo turno, ataques Normais dão dano Elétrico."
-    },
+    { name: "Poltergeist", type: "Ghost", dice: ["Int", "Forçar"], base: 6, notes: ['poltergeist'] },
+    { name: "Plasma Fists", type: "Electric", dice: ["Atk", "Lutar"], base: 10, notes: ['plasma-fists'] },
     { name: "Circle Throw", type: "Fighting", dice: ["Atk", "Lutar"], base: 6, notes: ['force-switch'] },
     { name: "Dragon Tail", type: "Dragon", dice: ["Atk", "Forçar"], base: 6, notes: ['force-switch'] },
-    {
-        name: "Tri-Attack", type: "Normal", dice: ["Dex", "Atirar"], base: 3,
-        effect: "O ataque rola dano de Fogo, dano de Gelo e dano Elétrico. " +
-            "O atacante escolhe qual dado tem os modificadores."
-    },
+    { name: "Tri-Attack", type: "Normal", dice: ["Dex", "Atirar"], base: 3, notes: ['tri-attack'] },
     { name: "Fire Fang", type: "Fire", dice: ["Atk", "Lutar"], base: 6, notes: ['burn10', 'flinch10'] },
     { name: "Pyro Ball", type: "Fire", dice: ["Dex", "Atirar"], base: 12, notes: ['burn10'] },
     { name: "Flame Wheel", type: "Fire", dice: ["Atk", "Lutar"], base: 6, notes: ['burn10'] },
@@ -225,8 +137,8 @@ const moves = [
     { name: "Psybeam", type: "Psychic", dice: ["Int", "Focar"], base: 6, notes: ['con10'] },
     { name: "Signal Beam", type: "Bug", dice: ["Int", "Focar"], base: 7, notes: ['con10'] },
     { name: "Ice Fang", type: "Ice", dice: ["Atk", "Lutar"], base: 6, notes: ['frz10', 'flinch10'] },
-    { name: "Freeze-Dry", type: "Ice", dice: ["Int", "Criar"], base: 7, notes: ['frz10'], effect: "Esse ataque é super efetivo em Pokémon do tipo água." },
-    { name: "Blizzard", type: "Ice", dice: ["Int", "Criar"], base: 11, notes: ['frz10'] },
+    { name: "Freeze-Dry", type: "Ice", dice: ["Int", "Criar"], base: 7, notes: ['frz10', 'freeze-dry'] },
+    { name: "Blizzard", type: "Ice", dice: ["Int", "Criar"], base: 11, notes: ['frz10', 'blizzard'] },
     { name: "Ice Beam", type: "Ice", dice: ["Int", "Criar"], base: 9, notes: ['frz10'] },
     { name: "Ice Punch", type: "Ice", dice: ["Atk", "Lutar"], base: 7, notes: ['frz10'] },
     { name: "Powder Snow", type: "Ice", dice: ["Int", "Criar"], base: 4, notes: ['frz10'] },
@@ -258,10 +170,10 @@ const moves = [
     { name: "Twister", type: "Dragon", dice: ["Int", "Criar"], base: 4, notes: ['flinch20'] },
     { name: "Waterfall", type: "Water", dice: ["Atk", "Criar"], base: 8, notes: ['flinch20'] },
     { name: "Zen Headbutt", type: "Psychic", dice: ["Atk", "Lutar"], base: 8, notes: ['flinch20'] },
-    { name: "Dizzy Punch", type: "Normal", dice: ["Atk", "Lutar"], base: 7, notes: ['confuse20'] },
-    { name: "Rock Climb", type: "Normal", dice: ["Atk", "Mover"], base: 9, notes: ['confuse20'] },
-    { name: "Strange Steam", type: "Fairy", dice: ["Int", "Criar"], base: 9, notes: ['confuse20'] },
-    { name: "Water Pulse", type: "Water", dice: ["Int", "Atirar"], base: 6, notes: ['confuse20'] },
+    { name: "Dizzy Punch", type: "Normal", dice: ["Atk", "Lutar"], base: 7, notes: ['con20'] },
+    { name: "Rock Climb", type: "Normal", dice: ["Atk", "Mover"], base: 9, notes: ['con20'] },
+    { name: "Strange Steam", type: "Fairy", dice: ["Int", "Criar"], base: 9, notes: ['con20'] },
+    { name: "Water Pulse", type: "Water", dice: ["Int", "Atirar"], base: 6, notes: ['con20'] },
     { name: "Crunch", type: "Dark", dice: ["Atk", "Lutar"], base: 8, notes: ['def20'] },
     { name: "Liquidation", type: "Water", dice: ["Atk", "Lutar"], base: 8, notes: ['def20'] },
     { name: "Shadow Ball", type: "Ghost", dice: ["Dex", "Atirar"], base: 8, notes: ['spdef20'] },
@@ -284,14 +196,14 @@ const moves = [
     { name: "Needle Arm", type: "Grass", dice: ["Atk", "Lutar"], base: 6, notes: ['flinch30'] },
     { name: "Rock Slide", type: "Rock", dice: ["Atk", "Lutar"], base: 7, notes: ['flinch30'] },
     { name: "Rolling Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 6, notes: ['flinch30'] },
-    { name: "Hurricane", type: "Flying", dice: ["Int", "Criar"], base: 11, notes: ['confuse30'] },
+    { name: "Hurricane", type: "Flying", dice: ["Int", "Criar"], base: 11, notes: ['con30', 'thunder'] },
     { name: "Mirror Shot", type: "Steel", dice: ["Int", "Criar"], base: 6, notes: ['acc30'] },
     { name: "Mud Bomb", type: "Ground", dice: ["Dex", "Atirar"], base: 6, notes: ['acc30'] },
     { name: "Muddy Water", type: "Water", dice: ["Int", "Criar"], base: 9, notes: ['acc30'] },
     { name: "Leaf Tornado", type: "Grass", dice: ["Int", "Criar"], base: 6, notes: ['acc30'] },
     { name: "Iron Tail", type: "Steel", dice: ["Atk", "Lutar"], base: 10, notes: ['def30'] },
     { name: "Bolt Strike", type: "Electric", dice: ["Atk", "Lutar"], base: 13, notes: ['par30'] },
-    { name: "Thunder", type: "Electric", dice: ["Int", "Criar"], base: 11, notes: ['par30'] },
+    { name: "Thunder", type: "Electric", dice: ["Int", "Criar"], base: 11, notes: ['par30', 'thunder'] },
     { name: "Body Slam", type: "Normal", dice: ["Atk", "Forçar"], base: 8, notes: ['par30'] },
     { name: "Bounce", type: "Flying", dice: ["Atk", "Mover"], base: 8, notes: ['par30'] },
     { name: "Discharge", type: "Electric", dice: ["Int", "Criar"], base: 8, notes: ['par30'] },
@@ -319,7 +231,7 @@ const moves = [
     { name: "Diamond Storm", type: "Rock", dice: ["Atk", "Lutar"], base: 10, notes: ['defup50'] },
     { name: "Fiery Dance", type: "Fire", dice: ["Dex", "Mover"], base: 8, notes: ['spaup50'] },
     { name: "Charge Beam", type: "Electric", dice: ["Int", "Focar"], base: 5, notes: ['spaup70'] },
-    { name: "Chatter", type: "Electric", dice: ["Int", "Estrelar"], base: 6, notes: ['confuse100'] },
+    { name: "Chatter", type: "Electric", dice: ["Int", "Estrelar"], base: 6, notes: ['con100'] },
     { name: "Cross Poison", type: "Poison", dice: ["Atk", "Lutar"], base: 7, notes: ['high-crit', 'psn10'] },
     { name: "Poison Tail", type: "Poison", dice: ["Atk", "Lutar"], base: 5, notes: ['high-crit', 'psn10'] },
     { name: "Aeroblast", type: "Flying", dice: ["Int", "Criar"], base: 10, notes: ['high-crit'] },
@@ -366,7 +278,7 @@ const moves = [
     { name: "Smack Down", type: "Rock", dice: ["Atk", "Forçar"], base: 5, notes: ['smack-down'] },
     { name: "Thousand Arrows", type: "Ground", dice: ["Dex", "Atirar"], base: 9, notes: ['smack-down'] },
     { name: "Inferno", type: "Fire", dice: ["Int", "Criar"], base: 10, notes: ['burn100'] },
-    { name: "Brick Break", type: "Fighting", dice: ['Atk', "Lutar"], base: 7, note: ['brick-break'] },
+    { name: "Brick Break", type: "Fighting", dice: ['Atk', "Lutar"], base: 7, notes: ['brick-break'] },
     { name: "Mud Slap", type: "Ground", dice: ["Int", "Lutar"], base: 2, notes: ['acc100'] },
     { name: "Lunge", type: "Bug", dice: ["Dex", "Lutar"], base: 8, notes: ['atk100'] },
     { name: "Fire Lash", type: "Fire", dice: ["Dex", "Atirar"], base: 8, notes: ['def100'] },
@@ -396,7 +308,7 @@ const moves = [
     { name: "Hammer Arm", type: "Fighting", dice: ["Atk", "Lutar"], base: 10, notes: ['speeddown100'] },
     { name: "Play Rough", type: "Fairy", dice: ["Atk", "Forçar"], base: 9, notes: ['atk10'] },
     { name: "Moonblast", type: "Fairy", dice: ["Int", "Criar"], base: 9, notes: ['spa30'] },
-    { name: "Hyperspace Fury", type: "Dark", dice: [], base: 10, notes: ['swift', 'defuser100', 'spdefuser100'] },
+    { name: "Hyperspace Fury", type: "Dark", dice: [], base: 10, notes: ['swift', 'defdown100', 'spdefuser100'] },
     { name: "Aerial Ace", type: "Flying", dice: [], base: 6, notes: ['swift'] },
     { name: "Aura Sphere", dice: [], base: 8, notes: ['swift'] },
     { name: "Disarming Voice", type: "Fairy", dice: [], base: 4, notes: ['swift'] },
@@ -435,19 +347,19 @@ const moves = [
     { name: "Payback", type: "Dark", dice: ["Atk", "Forçar"], base: 5, notes: ['avalanche'] },
     { name: "Expanding Force", type: "Psychic", dice: ["Int", "Focar"], base: 8, notes: ['expanding-force'] },
     { name: "Punishment", type: "Dark", dice: ["Atk", "Forçar"], base: 6, notes: ['punishment'] },
-    { name: "Skull Bash", type: "Normal", dice: ["Atk", "Forçar"], base: 13, notes: ['charge', 'defuser100'] },
-    { name: "Meteor Beam", type: "Rock", dice: ["Int", "Focar"], base: 12, notes: ['charge', 'spauser100'] },
+    { name: "Skull Bash", type: "Normal", dice: ["Atk", "Forçar"], base: 13, notes: ['charge', 'defdown100'] },
+    { name: "Meteor Beam", type: "Rock", dice: ["Int", "Focar"], base: 12, notes: ['charge', 'spaup100'] },
     { name: "Sky Attack", type: "Flying", dice: ["Atk", "Lutar"], base: 14, notes: ['charge'] },
     { name: "Anchor Shot", type: "Steel", dice: ["Atk", "Atirar"], base: 8, notes: ['trap'] },
     { name: "Thousand Waves", type: "Ground", dice: ["Atk", "Focar"], base: 9, notes: ['trap'] },
     { name: "Jaw Lock", type: "Dark", dice: ["Atk", "Lutar"], base: 8, notes: ['trap'] },
     { name: "Power Up Punch", type: "Fighting", dice: ["Atk", "Lutar"], base: 4, notes: ['atkuser100'] },
     { name: "Fell Stinger", type: "Bug", dice: ["Atk", "Forçar"], base: 3, notes: ['fell-stinger'] },
-    { name: "Flame Charge", type: "Fire", dice: ["Atk", "Mover"], base: 5, notes: ['speeduser100'] },
-    { name: "Aura Wheel", type: "Electric", dice: ["Atk", "Mover"], base: 11, notes: ['speeduser100', 'aura-wheel'] },
+    { name: "Flame Charge", type: "Fire", dice: ["Atk", "Mover"], base: 5, notes: ['speedup100'] },
+    { name: "Aura Wheel", type: "Electric", dice: ["Atk", "Mover"], base: 11, notes: ['speedup100', 'aura-wheel'] },
     { name: "Present", type: "Normal", dice: NaN, base: NaN, notes: ['present'] },
     { name: "Psywave", type: "Psychic", dice: ["Int", "Focar"], base: NaN, notes: ['psywave'] },
-    { name: "Clanging Scales", type: "Dragon", dice: ["Int", "Estrelar"], base: 11, notes: ['defuserdown100', 'sound'] },
+    { name: "Clanging Scales", type: "Dragon", dice: ["Int", "Estrelar"], base: 11, notes: ['defdown100', 'sound'] },
     { name: "Steel Roller", type: "Steel", dice: ["Atk", "Mover"], base: 6, notes: ['steel-roller'] },
     { name: "Knock Off", type: "Dark", dice: ["Atk", "Trapacear"], base: 6, notes: ['knock-off'] },
     { name: "Rapid Spin", type: "Normal", dice: ["Atk", "Mover"], base: 2, notes: ['rapid-spin'] },
@@ -464,8 +376,8 @@ const moves = [
     { name: "Oblivion Wing", type: "Flying", dice: ["Int", "Focar"], base: 8, notes: ['absorb3/4'] },
     { name: "Absorb", type: "Grass", dice: ["Int", "Focar"], base: 2, notes: ['absorb4'] },
     { name: "Covet", type: "Normal", dice: ["Atk", "Trapacear"], base: 6, notes: ['thief'] },
-    { name: "Triple Axel", type: "Ice", dice: ["Atk", "Mover"], base: 2, notes: ['three-times'] },
-    { name: "Triple Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 2, notes: ['three-times'] },
+    { name: "Triple Axel", type: "Ice", dice: ["Atk", "Mover"], base: 2, notes: ['multihit3'] },
+    { name: "Triple Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 2, notes: ['multihit3'] },
     { name: "Surging Strikes", type: "Water", dice: ["Atk", "Lutar"], base: NaN, notes: ['surging-strikes'] },
     { name: "Twineedle", type: "Bug", dice: ["Atk", "Lutar"], notes: ['multihit2'] },
     { name: "Bonemerang", type: "Ground", dice: ["Dex", "Atirar"], notes: ['multihit2'] },
@@ -509,7 +421,7 @@ const moves = [
     { name: "Steel Beam", type: "Steel", dice: ["Int", "Criar"], base: 14, notes: ['recoil2'] },
     { name: "Superpower", type: "Fighting", dice: ["Atk", "Forçar"], base: 12, notes: ['atkdown100', 'defdown100'] },
     { name: "Close Combat", type: "Fighting", dice: ["Atk", "Lutar"], base: 12, notes: ['defdown100', 'spdefdown100'] },
-    { name: "False Surrender", type: "Dark", dice: NaN, base: 8, notes: ['always-hit'] },
+    { name: "False Surrender", type: "Dark", dice: NaN, base: 8, notes: ['swift'] },
     { name: "Bind", type: "Normal", dice: ["Atk", "Forçar"], base: 1, notes: ['trap'] },
     { name: "Clamp", type: "Water", dice: ["Atk", "Forçar"], base: 3, notes: ['trap'] },
     { name: "Fire Spin", type: "Fire", dice: ["Int", "Focar"], base: 3, notes: ['trap'] },
@@ -557,7 +469,7 @@ const moves = [
     { name: "Spirit Shackle", type: "Ghost", dice: ["Atk", "Forçar"], base: 8, notes: ['trap'] },
     { name: "Solar Blade", type: "Grass", dice: ["Atk", "Lutar"], base: 12, notes: ['charge', 'solar-beam'] },
     { name: "Throat Chop", type: "Dark", dice: ["Atk", "Lutar"], base: 8, notes: ['throat-chop'] },
-    { name: "Smart Strike", type: "Steel", dice: NaN, base: 7, notes: ['always-hits'] },
+    { name: "Smart Strike", type: "Steel", dice: NaN, base: 7, notes: ['swift'] },
     { name: "Trop Kick", type: "Grass", dice: ["Atk", "Lutar"], base: 7, notes: ['atk100'] },
     { name: "Stomping Tantrum", type: "Ground", dice: ["Atk", "Forçar"], base: 7, notes: ['stomping-tantrum'] },
     { name: "Spectral Thief", type: "Ghost", dice: ["Atk", "Trapacear"], base: 9, notes: ['pos-stat-steal'] },
@@ -566,7 +478,7 @@ const moves = [
     { name: "Thunderous Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 9, notes: ['defdown100'] },
     { name: "Glacial Lance", type: "Ice", dice: ["Atk", "Lutar"], base: 12 },
     { name: "Dire Claw", type: "Poison", dice: ["Atk", "Lutar"], base: 8, notes: ['dire-claw'] },
-    { name: "Psyshield Bash", type: "Psychic", dice: ["Atk", "Lutar"], base: 7, notes: ['defuser100'] },
+    { name: "Psyshield Bash", type: "Psychic", dice: ["Atk", "Lutar"], base: 7, notes: ['defdown100'] },
     { name: "Stone Axe", type: "Rock", dice: ["Atk", "Lutar"], base: 6, notes: ['rock-up'] },
     { name: "Raging Fury", type: "Fire", dice: ["Atk", "Forçar"], base: 12, notes: ['outrage'] },
     { name: "Wave Crash", type: "Water", dice: ["Atk", "Forçar"], base: 12, notes: ['recoil3'] },
@@ -575,7 +487,7 @@ const moves = [
     { name: "Barb Barrage", type: "Poison", dice: ["Atk", "Lutar"], base: 6, notes: ['psn30', 'double-volatile'] },
     { name: "Triple Arrows", type: "Fighting", dice: ["Atk", "Atirar"], base: 9, notes: ['high-crit', 'def50', 'flinch30'] },
     { name: "Ceaseless Edge", type: "Dark", dice: ["Atk", "Lutar"], base: 6, notes: ['spikes-up'] },
-    { name: "Axe Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 12, notes: ['con30', 'crash-dmg'] },
+    { name: "Axe Kick", type: "Fighting", dice: ["Atk", "Lutar"], base: 12, notes: ['con30', 'crash'] },
     { name: "Last Respects", type: "Ghost", dice: ["Atk", "Forçar"], base: 5, notes: ['last-respects'] },
     { name: "Order Up", type: "Water", dice: ["Atk", "Lutar"], base: 8, notes: ['order-up'] },
     { name: "Jet Punch", type: "Water", dice: ["Atk", "Lutar"], base: 6, notes: ['prio1'] },
@@ -586,10 +498,10 @@ const moves = [
     { name: "Salt Cure", type: "Rock", dice: ["Atk", "Lutar"], base: 4, notes: ['trap', 'salt-cure'] },
     { name: "Triple Dive", type: "Water", dice: ["Atk", "Mover"], base: 3, notes: ['multihit3'] },
     { name: "Mortal Spin", type: "Poison", dice: ["Atk", "Mover"], base: 3, notes: ['rapid-spin', 'psn100'] },
-    { name: "Kowtow Cleave", type: "Dark", base: 8, notes: ['always-hits'] },
-    { name: "Flower Trick", type: "Grass", base: 7, notes: ['always-hits'] },
-    { name: "Aqua Step", type: "Water", dice: ["Atk", "Mover"], base: 8, notes: ['speeduser100'] },
-    { name: "Raging Bull", type: "Normal", dice: ["Atk", "Forçar"], base: 9, notes: ['brick-break', 'raging-bull'] },
+    { name: "Kowtow Cleave", type: "Dark", base: 8, notes: ['swift'] },
+    { name: "Flower Trick", type: "Grass", base: 7, notes: ['swift'] },
+    { name: "Aqua Step", type: "Water", dice: ["Atk", "Mover"], base: 8, notes: ['speedup100'] },
+    { name: "Raging Bull", type: "Normal", dice: ["Atk", "Forçar"], base: 9, notes: ['brick-break', 'always-stab'] },
     { name: "Psyblade", type: "Psychic", dice: ["Atk", "Lutar"], base: 8, notes: ['rising-voltage'] },
     { name: "Collision Course", type: "Fighting", dice: ["Atk", "Forçar"], base: 10, notes: ['collision-course'] },
     { name: "Pounce", type: "Bug", dice: ["Atk", "Mover"], base: 5, notes: ['speeddown100'] },
